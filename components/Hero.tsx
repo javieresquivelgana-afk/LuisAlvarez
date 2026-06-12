@@ -20,10 +20,7 @@ export default function Hero() {
 
           <div className="hero-actions">
             <a className="btn btn-primary" href="#agendar">
-              Agendar visita técnica
-            </a>
-            <a className="btn btn-outline" href="#agendar">
-              Solicitar cotización
+              Agenda tu visita técnica
             </a>
           </div>
 
@@ -53,13 +50,6 @@ export default function Hero() {
               sizes="(max-width: 880px) 100vw, 45vw"
               style={{ objectFit: "cover" }}
             />
-          </div>
-          <div className="hero-card">
-            <b>Visita técnica coordinada</b>
-            <span>
-              Evaluamos tu requerimiento en terreno y te enviamos una
-              cotización clara.
-            </span>
           </div>
         </div>
       </div>

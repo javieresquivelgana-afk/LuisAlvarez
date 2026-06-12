@@ -1,3 +1,5 @@
+"use client";
+
 import { site } from "@/site.config";
 
 /* Íconos lineales por servicio */
@@ -49,6 +51,12 @@ const icons: Record<string, React.ReactNode> = {
 };
 
 export default function Services() {
+  function selectService(service: string) {
+    window.dispatchEvent(
+      new CustomEvent("select-service", { detail: service }),
+    );
+  }
+
   return (
     <section className="section section-soft" id="servicios">
       <div className="wrap">
@@ -77,7 +85,11 @@ export default function Services() {
               </span>
               <h3>{s.name}</h3>
               <p>{s.desc}</p>
-              <a className="svc-link" href="#agendar">
+              <a
+                className="svc-link"
+                href="#agendar"
+                onClick={() => selectService(s.name)}
+              >
                 Agendar servicio
                 <svg width="13" height="13" viewBox="0 0 12 12" fill="none">
                   <path

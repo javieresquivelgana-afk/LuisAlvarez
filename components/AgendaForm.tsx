@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { site, waLink } from "@/site.config";
 
 const Check = () => (
@@ -20,6 +20,16 @@ type Status = "idle" | "sending" | "ok" | "err";
 export default function AgendaForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const [selectedService, setSelectedService] = useState("");
+
+  useEffect(() => {
+    function onSelectService(event: Event) {
+      setSelectedService((event as CustomEvent<string>).detail);
+    }
+
+    window.addEventListener("select-service", onSelectService);
+    return () => window.removeEventListener("select-service", onSelectService);
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -37,6 +47,7 @@ export default function AgendaForm() {
       }
       setStatus("ok");
       form.reset();
+      setSelectedService("");
     } catch (err) {
       setStatus("err");
       setError(err instanceof Error ? err.message : "Error inesperado.");
@@ -129,7 +140,13 @@ export default function AgendaForm() {
               <label htmlFor="servicio">
                 Tipo de servicio requerido <b>*</b>
               </label>
-              <select id="servicio" name="servicio" required defaultValue="">
+              <select
+                id="servicio"
+                name="servicio"
+                required
+                value={selectedService}
+                onChange={(e) => setSelectedService(e.target.value)}
+              >
                 <option value="" disabled>
                   Selecciona un servicio
                 </option>
