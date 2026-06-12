@@ -989,3 +989,237 @@ h3 {
     padding: 15px;
   }
 }
+
+/* ── Vista móvil compacta ────────────────────────────────── */
+
+@media (max-width: 620px) {
+  :root {
+    --header-h: 64px;
+  }
+
+  .wrap {
+    padding-inline: 18px;
+  }
+
+  .header-in {
+    gap: 12px;
+  }
+
+  .logo {
+    gap: 9px;
+  }
+
+  .logo-mark {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+
+  .header-cta .btn-primary {
+    font-size: 13px;
+    padding: 10px 13px;
+  }
+
+  .hero {
+    padding: 42px 0 48px;
+  }
+
+  .hero-in {
+    gap: 28px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    margin-block: 14px;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    margin-top: 22px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 18px;
+  }
+
+  .fact b {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .fact span {
+    display: none;
+  }
+
+  .hero-photo {
+    aspect-ratio: 16 / 10;
+  }
+
+  .trust {
+    padding: 14px 0;
+    overflow: hidden;
+  }
+
+  .trust-in {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .trust-in::-webkit-scrollbar,
+  .services-grid::-webkit-scrollbar,
+  .clients-grid::-webkit-scrollbar,
+  .steps::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trust-item {
+    flex: none;
+    white-space: nowrap;
+    font-size: 13.5px;
+    padding-right: 12px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 28px;
+    margin-block: 14px 10px;
+  }
+
+  .section-lead {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .services-grid,
+  .steps {
+    display: flex;
+    gap: 14px;
+    margin-top: 28px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .svc,
+  .step {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+
+  .svc {
+    padding: 22px 20px 20px;
+  }
+
+  .svc-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .exp {
+    padding: 60px 0;
+  }
+
+  .exp-in,
+  .clasea-in,
+  .form-in {
+    gap: 32px;
+  }
+
+  .clients-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .client {
+    flex: 0 0 62%;
+    padding: 16px 18px;
+    scroll-snap-align: start;
+  }
+
+  .clasea-photo {
+    aspect-ratio: 16 / 10;
+  }
+
+  .clasea-points {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+    margin-top: 20px;
+  }
+
+  .clasea-points li {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .step {
+    padding: 22px 20px;
+  }
+
+  .form-side ul {
+    display: none;
+  }
+
+  .form-card {
+    padding: 22px 18px;
+  }
+
+  .form-grid {
+    gap: 14px;
+  }
+
+  .field textarea {
+    min-height: 90px;
+  }
+
+  .final {
+    padding: 64px 0;
+  }
+
+  .final p {
+    font-size: 16px;
+  }
+
+  .final-actions {
+    margin-top: 24px;
+  }
+
+  .final-actions .btn {
+    width: 100%;
+  }
+
+  .footer {
+    padding-top: 44px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
+    padding-bottom: 32px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
