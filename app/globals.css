@@ -1068,30 +1068,7 @@ h3 {
   }
 
   .trust {
-    padding: 14px 0;
-    overflow: hidden;
-  }
-
-  .trust-in {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 10px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .trust-in::-webkit-scrollbar,
-  .services-grid::-webkit-scrollbar,
-  .clients-grid::-webkit-scrollbar,
-  .steps::-webkit-scrollbar {
     display: none;
-  }
-
-  .trust-item {
-    flex: none;
-    white-space: nowrap;
-    font-size: 13.5px;
-    padding-right: 12px;
   }
 
   .section {
@@ -1110,28 +1087,40 @@ h3 {
 
   .services-grid,
   .steps {
-    display: flex;
-    gap: 14px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
     margin-top: 28px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    padding-bottom: 4px;
+    overflow: visible;
   }
 
   .svc,
   .step {
-    flex: 0 0 82%;
-    scroll-snap-align: start;
+    min-width: 0;
   }
 
   .svc {
-    padding: 22px 20px 20px;
+    padding: 18px 14px;
+    gap: 8px;
   }
 
   .svc-icon {
     width: 42px;
     height: 42px;
+  }
+
+  .svc h3 {
+    font-size: 16px;
+  }
+
+  .svc p,
+  .step p {
+    display: none;
+  }
+
+  .svc-link {
+    font-size: 13px;
+    margin-top: auto;
   }
 
   .exp {
@@ -1144,18 +1133,25 @@ h3 {
     gap: 32px;
   }
 
+  .exp-in > *,
+  .clasea-in > *,
+  .form-in > * {
+    min-width: 0;
+  }
+
   .clients-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: 100%;
     gap: 12px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    overflow: visible;
   }
 
   .client {
-    flex: 0 0 62%;
-    padding: 16px 18px;
-    scroll-snap-align: start;
+    min-width: 0;
+    padding: 14px;
+    font-size: 14px;
   }
 
   .clasea-photo {
@@ -1174,7 +1170,15 @@ h3 {
   }
 
   .step {
-    padding: 22px 20px;
+    padding: 18px 14px;
+  }
+
+  .step-num {
+    margin-bottom: 6px;
+  }
+
+  .step h3 {
+    font-size: 16px;
   }
 
   .form-side ul {
@@ -1221,5 +1225,16 @@ h3 {
 
   .footer-brand {
     grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 360px) {
+  .header .logo-name {
+    display: none;
+  }
+
+  .header-cta .btn-primary {
+    font-size: 12.5px;
+    padding-inline: 11px;
   }
 }
