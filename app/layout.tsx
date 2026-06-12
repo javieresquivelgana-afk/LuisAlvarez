@@ -1,26 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow, Barlow_Condensed, IBM_Plex_Mono } from "next/font/google";
+import { Archivo, Source_Sans_3 } from "next/font/google";
 import { site } from "@/site.config";
 import "./globals.css";
 
-const barlow = Barlow({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const barlowCondensed = Barlow_Condensed({
+const archivo = Archivo({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -47,19 +40,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b1118",
+  themeColor: "#13304e",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es-CL">
-      <body
-        className={`${barlow.variable} ${barlowCondensed.variable} ${plexMono.variable}`}
-      >
-        {children}
-      </body>
+    <html lang="es-CL" className={`${archivo.variable} ${sourceSans.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

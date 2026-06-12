@@ -5,7 +5,9 @@ export default function Header() {
     <header className="header">
       <div className="wrap header-in">
         <a href="#" className="logo" aria-label="Inicio">
-          <span className="logo-mark">LA</span>
+          <span className="logo-mark">
+            <span>LA</span>
+          </span>
           <span className="logo-text">
             <span className="logo-name">{site.brand}</span>
             <span className="logo-sub">{site.brandSuffix}</span>
@@ -16,14 +18,14 @@ export default function Header() {
           <a href="#servicios">Servicios</a>
           <a href="#experiencia">Experiencia</a>
           <a href="#proceso">Cómo trabajamos</a>
-          <a href="#agendar">Agendar visita</a>
+          <a href="#agendar">Contacto</a>
         </nav>
 
         <div className="header-cta">
-          <a className="btn btn-ghost btn-sm" href={waLink()} target="_blank">
+          <a className="btn btn-outline btn-sm" href={waLink()} target="_blank">
             WhatsApp
           </a>
-          <a className="btn btn-volt btn-sm" href="#agendar">
+          <a className="btn btn-primary btn-sm" href="#agendar">
             Agendar visita técnica
           </a>
         </div>

@@ -27,10 +27,10 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="section" id="proceso">
+    <section className="section section-soft" id="proceso">
       <div className="wrap">
         <span className="kicker">Cómo trabajamos</span>
-        <h2 className="section-title">Un proceso claro, de punta a punta</h2>
+        <h2 className="section-title">Un proceso claro, de principio a fin</h2>
         <p className="section-lead">
           Sabes en qué etapa está tu proyecto en todo momento, desde la
           solicitud hasta la entrega final.
@@ -38,10 +38,8 @@ export default function Process() {
 
         <div className="steps">
           {steps.map((s, i) => (
-            <div className="step reveal" key={s.title}>
-              <span className="step-num">
-                PASO {String(i + 1).padStart(2, "0")} / 06
-              </span>
+            <div className="step" key={s.title}>
+              <span className="step-num">{String(i + 1).padStart(2, "0")}</span>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
             </div>

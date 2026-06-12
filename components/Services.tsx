@@ -1,12 +1,15 @@
 import { site } from "@/site.config";
 
-/* Íconos lineales por servicio, estilo esquemático */
+/* Íconos lineales por servicio */
 const icons: Record<string, React.ReactNode> = {
   ingenieria: (
     <path d="M4 20V10l8-6 8 6v10M9 20v-6h6v6" strokeLinejoin="round" />
   ),
   "redes-bt-mt": (
-    <path d="M12 3v5m0 0l-6 5m6-5l6 5M6 13v8m12-8v8M3 21h18" strokeLinejoin="round" />
+    <path
+      d="M12 3v5m0 0l-6 5m6-5l6 5M6 13v8m12-8v8M3 21h18"
+      strokeLinejoin="round"
+    />
   ),
   fuerza: <path d="M13 2L5 13h6l-2 9 8-11h-6l2-9z" strokeLinejoin="round" />,
   mantenimiento: (
@@ -47,39 +50,36 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function Services() {
   return (
-    <section className="section" id="servicios">
+    <section className="section section-soft" id="servicios">
       <div className="wrap">
         <span className="kicker">Servicios</span>
         <h2 className="section-title">Soluciones eléctricas completas</h2>
         <p className="section-lead">
           Desde el proyecto de ingeniería hasta la ejecución, mantención y
-          puesta en marcha. Un solo responsable técnico para toda tu
-          instalación eléctrica.
+          puesta en marcha, con un solo responsable técnico para toda la
+          instalación.
         </p>
 
         <div className="services-grid">
           {site.services.map((s) => (
-            <article className="svc reveal" key={s.id}>
-              <div className="svc-head">
-                <span className="svc-icon">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                  >
-                    {icons[s.id]}
-                  </svg>
-                </span>
-                <span className="svc-code">SRV·{s.code}</span>
-              </div>
+            <article className="svc" key={s.id}>
+              <span className="svc-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                >
+                  {icons[s.id]}
+                </svg>
+              </span>
               <h3>{s.name}</h3>
               <p>{s.desc}</p>
               <a className="svc-link" href="#agendar">
                 Agendar servicio
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <svg width="13" height="13" viewBox="0 0 12 12" fill="none">
                   <path
                     d="M2 6h8M7 3l3 3-3 3"
                     stroke="currentColor"

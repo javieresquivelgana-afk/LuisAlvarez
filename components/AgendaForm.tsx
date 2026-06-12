@@ -44,7 +44,7 @@ export default function AgendaForm() {
   }
 
   return (
-    <section className="section section-alt" id="agendar">
+    <section className="section" id="agendar">
       <div className="wrap form-in">
         <div className="form-side">
           <span className="kicker">Agenda tu visita</span>
@@ -182,7 +182,7 @@ export default function AgendaForm() {
           </p>
 
           <button
-            className="btn btn-volt form-submit"
+            className="btn btn-primary form-submit"
             type="submit"
             disabled={status === "sending"}
           >
@@ -193,7 +193,7 @@ export default function AgendaForm() {
 
           {status === "ok" && (
             <p className="form-status ok" role="status">
-              ✓ Solicitud recibida. Te contactaremos pronto para confirmar la
+              Solicitud recibida. Te contactaremos pronto para confirmar la
               visita. Si prefieres, también puedes{" "}
               <a href={waLink()} target="_blank">
                 escribirnos por WhatsApp

@@ -8,7 +8,9 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <a href="#" className="logo">
-              <span className="logo-mark">LA</span>
+              <span className="logo-mark">
+                <span>LA</span>
+              </span>
               <span className="logo-text">
                 <span className="logo-name">{site.brand}</span>
                 <span className="logo-sub">{site.brandSuffix}</span>
@@ -79,7 +81,7 @@ export default function Footer() {
           <span>
             © {year} {site.brand} — {site.brandSuffix}
           </span>
-          <span>INSTALADOR ELÉCTRICO CLASE A</span>
+          <span>Instalador eléctrico Clase A</span>
         </div>
       </div>
     </footer>
