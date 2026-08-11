@@ -15,11 +15,37 @@ Vercel.
 | WhatsApp (formato `569XXXXXXXX`, sin `+`) | `whatsapp` |
 | Mensaje precargado de WhatsApp | `whatsappMessage` |
 | Zonas de atención | `zones` |
-| Clientes publicables (quitar los no confirmados) | `clients` |
+| N° de licencia SEC | `claseA.licencia` |
+| Mostrar nombres de clientes (decisión comercial) | `showClientNames` |
+| Sectores atendidos (alternativa sobria a las marcas) | `sectors` |
 | Servicios (nombre y descripción de cada tarjeta) | `services` |
 
-> ⚠️ Antes de publicar: reemplazar los valores marcados con `TODO` en
-> `site.config.ts` (número de WhatsApp, teléfono y correo son placeholders).
+### 🟡 Datos pendientes: el sitio no inventa nada
+
+Los campos de contacto vacíos (`""`) se consideran **pendientes**. El sitio
+**no** muestra un número o correo inventado: en su lugar despliega el
+distintivo `POR CONFIRMAR` y **desactiva con elegancia** los botones de
+WhatsApp (header, CTA final, botón flotante), dejando el formulario como
+única vía de contacto.
+
+Al escribir el dato real en `site.config.ts`, todo se activa solo — no hay
+que tocar ningún componente.
+
+**Pendientes al 2026-08-10:** `phone`, `email`, `whatsapp`, `zones` y
+`claseA.licencia`.
+
+### ⚖️ Sobre nombrar clientes (`showClientNames`)
+
+Luis Álvarez indicó como clientes suyos a Dunkin' Donuts, San Camilo, Salfa
+Gestión, Macsa y Eros/PedidosYa. Son reales, pero **haber trabajado para una
+marca no equivale a tener permiso para usar su nombre** en material
+promocional propio; las cadenas grandes suelen exigirlo por escrito.
+
+Por eso el sitio arranca en `showClientNames: false` y muestra la
+formulación sobria por sectores (`sectors`), que comunica el mismo peso
+comercial sin exponer al cliente. Los nombres quedan escritos en
+`clients` — para activarlos basta cambiar el flag a `true`, y se renderizan
+como texto, nunca con logos ajenos.
 
 ## 🚀 Desarrollo local
 

@@ -1,11 +1,17 @@
 import { waLink } from "@/site.config";
 
 export default function WhatsAppFloat() {
+  const wa = waLink();
+
+  // Sin número real todavía: no se renderiza un botón flotante muerto.
+  if (!wa) return null;
+
   return (
     <a
       className="wa-float"
-      href={waLink()}
+      href={wa}
       target="_blank"
+      rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">

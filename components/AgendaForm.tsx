@@ -17,6 +17,8 @@ const Check = () => (
 
 type Status = "idle" | "sending" | "ok" | "err";
 
+const wa = waLink();
+
 export default function AgendaForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
@@ -67,7 +69,7 @@ export default function AgendaForm() {
           <ul>
             <li>
               <Check />
-              Respuesta por WhatsApp o llamada para confirmar la visita.
+              Te contactamos directamente para confirmar día y hora.
             </li>
             <li>
               <Check />
@@ -194,8 +196,8 @@ export default function AgendaForm() {
           </div>
 
           <p className="form-note">
-            Una vez enviada la solicitud, nos contactaremos para confirmar la
-            visita técnica por WhatsApp o llamada.
+            Una vez enviada la solicitud, nos contactaremos contigo para
+            confirmar la visita técnica.
           </p>
 
           <button
@@ -208,25 +210,37 @@ export default function AgendaForm() {
               : "Enviar solicitud de agenda"}
           </button>
 
-          {status === "ok" && (
+          {status === "ok" ? (
             <p className="form-status ok" role="status">
               Solicitud recibida. Te contactaremos pronto para confirmar la
-              visita. Si prefieres, también puedes{" "}
-              <a href={waLink()} target="_blank">
-                escribirnos por WhatsApp
-              </a>
-              .
+              visita.
+              {wa ? (
+                <>
+                  {" "}
+                  Si prefieres, también puedes{" "}
+                  <a href={wa} target="_blank" rel="noopener noreferrer">
+                    escribirnos por WhatsApp
+                  </a>
+                  .
+                </>
+              ) : null}
             </p>
-          )}
-          {status === "err" && (
+          ) : null}
+          {status === "err" ? (
             <p className="form-status err" role="alert">
-              {error} Inténtalo de nuevo o{" "}
-              <a href={waLink()} target="_blank">
-                contáctanos por WhatsApp
-              </a>
+              {error} Inténtalo de nuevo
+              {wa ? (
+                <>
+                  {" "}
+                  o{" "}
+                  <a href={wa} target="_blank" rel="noopener noreferrer">
+                    contáctanos por WhatsApp
+                  </a>
+                </>
+              ) : null}
               .
             </p>
-          )}
+          ) : null}
         </form>
       </div>
     </section>

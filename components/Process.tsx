@@ -1,7 +1,7 @@
 const steps = [
   {
     title: "Envías tu solicitud",
-    desc: "Completas el formulario o escribes por WhatsApp con tu requerimiento.",
+    desc: "Completas el formulario con tu requerimiento y los datos del lugar.",
   },
   {
     title: "Coordinamos la visita",

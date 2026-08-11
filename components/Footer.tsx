@@ -1,7 +1,21 @@
-import { site, waLink } from "@/site.config";
+import {
+  site,
+  waLink,
+  hasPhone,
+  hasEmail,
+  hasZones,
+  PENDIENTE,
+} from "@/site.config";
+
+const Pendiente = ({ label }: { label: string }) => (
+  <span className="pendiente-line">
+    {label}: <span className="pendiente">{PENDIENTE}</span>
+  </span>
+);
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const wa = waLink();
   return (
     <footer className="footer">
       <div className="wrap">
@@ -48,17 +62,29 @@ export default function Footer() {
             <h4>Contacto</h4>
             <ul>
               <li>
-                <a href={`tel:${site.phone.replace(/\s/g, "")}`}>
-                  {site.phone}
-                </a>
+                {hasPhone ? (
+                  <a href={`tel:${site.phone.replace(/\s/g, "")}`}>
+                    {site.phone}
+                  </a>
+                ) : (
+                  <Pendiente label="Teléfono" />
+                )}
               </li>
               <li>
-                <a href={`mailto:${site.email}`}>{site.email}</a>
+                {hasEmail ? (
+                  <a href={`mailto:${site.email}`}>{site.email}</a>
+                ) : (
+                  <Pendiente label="Correo" />
+                )}
               </li>
               <li>
-                <a href={waLink()} target="_blank">
-                  WhatsApp directo
-                </a>
+                {wa ? (
+                  <a href={wa} target="_blank" rel="noopener noreferrer">
+                    WhatsApp directo
+                  </a>
+                ) : (
+                  <Pendiente label="WhatsApp" />
+                )}
               </li>
             </ul>
           </div>
@@ -66,7 +92,13 @@ export default function Footer() {
           <div>
             <h4>Atención</h4>
             <ul>
-              <li>{site.zones}</li>
+              <li>
+                {hasZones ? (
+                  site.zones
+                ) : (
+                  <Pendiente label="Zonas de atención" />
+                )}
+              </li>
               <li>
                 <a href="#agendar">Agendar visita técnica</a>
               </li>

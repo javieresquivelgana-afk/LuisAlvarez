@@ -1,6 +1,8 @@
 import { waLink } from "@/site.config";
 
 export default function FinalCTA() {
+  const wa = waLink();
+
   return (
     <section className="final">
       <div className="wrap">
@@ -15,9 +17,16 @@ export default function FinalCTA() {
           <a className="btn btn-amber" href="#agendar">
             Agendar visita técnica
           </a>
-          <a className="btn btn-wa" href={waLink()} target="_blank">
-            Contactar por WhatsApp
-          </a>
+          {wa ? (
+            <a
+              className="btn btn-wa"
+              href={wa}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contactar por WhatsApp
+            </a>
+          ) : null}
         </div>
       </div>
     </section>

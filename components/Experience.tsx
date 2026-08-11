@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site } from "@/site.config";
 
 export default function Experience() {
@@ -10,25 +11,55 @@ export default function Experience() {
             Trayectoria en proyectos eléctricos comerciales
           </h2>
           <p className="section-lead">
-            Experiencia en proyectos eléctricos para empresas, edificios y
-            locales comerciales: habilitaciones, redes, mantención y obras de
-            fuerza para marcas y operaciones exigentes.
+            Proyectos eléctricos para empresas, edificios y locales
+            comerciales: habilitaciones completas, redes, mantención y obras
+            de fuerza para operaciones que no pueden detenerse.
           </p>
+
+          <div className="exp-photo">
+            <Image
+              src="/img/planos.jpg"
+              alt="Planos de un proyecto eléctrico sobre mesa de trabajo"
+              width={1042}
+              height={695}
+              sizes="(max-width: 880px) 100vw, 42vw"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </div>
         </div>
 
         <div>
-          <div className="clients-grid">
-            {site.clients.map((c) => (
-              <div className="client" key={c}>
-                {c}
+          {site.showClientNames ? (
+            <>
+              <div className="clients-grid">
+                {site.clients.map((c) => (
+                  <div className="client" key={c}>
+                    {c}
+                  </div>
+                ))}
+                <div className="client">Y otros clientes comerciales</div>
               </div>
-            ))}
-            <div className="client">Y otros clientes comerciales</div>
-          </div>
-          <p className="exp-note">
-            Proyectos ejecutados de forma directa o como parte de equipos de
-            obra.
-          </p>
+              <p className="exp-note">
+                Proyectos ejecutados de forma directa o como parte de equipos
+                de obra.
+              </p>
+            </>
+          ) : (
+            <>
+              <ul className="sectors">
+                {site.sectors.map((s) => (
+                  <li className="sector" key={s.name}>
+                    <h3>{s.name}</h3>
+                    <p>{s.desc}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="exp-note">
+                Proyectos ejecutados de forma directa o como parte de equipos
+                de obra.
+              </p>
+            </>
+          )}
         </div>
       </div>
     </section>

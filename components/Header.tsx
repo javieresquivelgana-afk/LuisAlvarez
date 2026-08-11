@@ -1,6 +1,8 @@
 import { site, waLink } from "@/site.config";
 
 export default function Header() {
+  const wa = waLink();
+
   return (
     <header className="header">
       <div className="wrap header-in">
@@ -22,9 +24,16 @@ export default function Header() {
         </nav>
 
         <div className="header-cta">
-          <a className="btn btn-outline btn-sm" href={waLink()} target="_blank">
-            WhatsApp
-          </a>
+          {wa ? (
+            <a
+              className="btn btn-outline btn-sm"
+              href={wa}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+          ) : null}
           <a className="btn btn-primary btn-sm" href="#agendar">
             Agendar visita técnica
           </a>
