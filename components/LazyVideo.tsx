@@ -21,6 +21,9 @@ type Props = {
 export default function LazyVideo({ name, className, label }: Props) {
   const ref = useRef<HTMLVideoElement | null>(null);
   const [src, setSrc] = useState<string | null>(null);
+  /** Igual que en el hero: si el navegador no deja reproducir, se
+   *  muestra el fotograma en vez del botón de play de Safari. */
+  const [blocked, setBlocked] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -35,7 +38,11 @@ export default function LazyVideo({ name, className, label }: Props) {
         for (const entry of entries) {
           if (entry.isIntersecting) {
             setSrc(`/video/${name}${suffix}.mp4`);
-            void el.play().catch(() => {});
+            el.play().catch(() => setBlocked(true));
+            // Safari puede aceptar play() y dejar el video quieto igual
+            window.setTimeout(() => {
+              if (el.paused) setBlocked(true);
+            }, 3000);
           } else {
             el.pause();
           }
@@ -47,6 +54,17 @@ export default function LazyVideo({ name, className, label }: Props) {
     io.observe(el);
     return () => io.disconnect();
   }, [name]);
+
+  if (blocked) {
+    return (
+      <img
+        className={className}
+        src={`/img/${name}.jpg`}
+        alt={label ?? ""}
+        aria-hidden={label ? undefined : true}
+      />
+    );
+  }
 
   return (
     <video

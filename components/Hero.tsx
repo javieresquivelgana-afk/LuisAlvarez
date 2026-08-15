@@ -32,6 +32,13 @@ const wa = waLink();
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [suffix, setSuffix] = useState<string | null>(null);
+  /**
+   * Safari en modo de bajo consumo bloquea la reproducción automática y
+   * dibuja su propio botón de play encima del video. En vez de dejar
+   * ese botón (que promete algo que el hero no es), se cambia el video
+   * por su fotograma: el hero se ve como una foto y nada más.
+   */
+  const [blocked, setBlocked] = useState(false);
   const videos = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
@@ -51,14 +58,27 @@ export default function Hero() {
     if (suffix === null) return;
 
     const play = (v: HTMLVideoElement | null) => {
-      if (v) void v.play().catch(() => {});
+      if (!v) return;
+      v.play().catch(() => setBlocked(true));
     };
 
     videos.current.forEach(play);
 
     // Reintento tras la carga: iOS ignora play() antes de tener datos.
     const retry = window.setTimeout(() => videos.current.forEach(play), 1200);
-    return () => window.clearTimeout(retry);
+
+    /* No basta con escuchar el rechazo de play(): en modo de bajo
+       consumo Safari puede resolver la promesa y dejar el video igual
+       de quieto. Se comprueba el resultado, que es lo que se ve. */
+    const verify = window.setTimeout(() => {
+      const stuck = videos.current.some((v) => v && v.paused);
+      if (stuck) setBlocked(true);
+    }, 3000);
+
+    return () => {
+      window.clearTimeout(retry);
+      window.clearTimeout(verify);
+    };
   }, [suffix]);
 
   const show = useCallback((i: number) => setIndex(i), []);
@@ -80,6 +100,17 @@ export default function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-video-layer" aria-hidden="true">
+        {blocked
+          ? clips.map((c, i) => (
+              <img
+                key={c.src}
+                className={i === index ? "is-active" : ""}
+                src={`/img/${c.src}.jpg`}
+                alt=""
+              />
+            ))
+          : null}
+
         {clips.map((c, i) => (
           <video
             key={c.src}
@@ -94,6 +125,7 @@ export default function Hero() {
             loop
             playsInline
             preload="auto"
+            hidden={blocked}
           />
         ))}
       </div>

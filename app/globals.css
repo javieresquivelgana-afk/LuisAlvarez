@@ -504,6 +504,7 @@ h4 {
   z-index: -3;
 }
 
+.hero-video-layer img,
 .hero-video-layer video {
   position: absolute;
   inset: 0;
@@ -657,6 +658,7 @@ h4 {
   min-height: 56svh;
 }
 
+.phero img,
 .phero video {
   position: absolute;
   inset: 0;
@@ -925,6 +927,7 @@ h4 {
   isolation: isolate;
 }
 
+.band img,
 .band video {
   position: absolute;
   inset: 0;
@@ -1532,6 +1535,7 @@ h4 {
   isolation: isolate;
 }
 
+.final img,
 .final video {
   position: absolute;
   inset: 0;
@@ -2048,7 +2052,8 @@ h4 {
     scroll-behavior: auto;
   }
 
-  .hero-video-layer video {
+  .hero-video-layer img,
+.hero-video-layer video {
     animation: none;
   }
 
