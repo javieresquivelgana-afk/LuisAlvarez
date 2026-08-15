@@ -36,9 +36,19 @@ const Ig = () => (
 );
 
 export default function Coverage() {
-  const embed = `https://maps.google.com/maps?q=${encodeURIComponent(
-    fullAddress,
-  )}&z=13&output=embed`;
+  /**
+   * Mapa de la zona base, servido por OpenStreetMap: no necesita API key
+   * ni cookies de terceros, y siempre carga (el embed de Google queda en
+   * blanco cuando el navegador bloquea sus cookies).
+   *
+   * Se muestra el área de operación — provincia de San Antonio y borde
+   * costero — y no un pin exacto: "Costanera del Mar" es una avenida
+   * larga del litoral y la ubicación puntual está por confirmar con el
+   * cliente. La dirección textual sí está a la izquierda, con enlace a
+   * Google Maps para quien quiera navegar hasta allá.
+   */
+  const embed =
+    "https://www.openstreetmap.org/export/embed.html?bbox=-71.72%2C-33.66%2C-71.48%2C-33.48&layer=mapnik";
 
   return (
     <section className="section" id="cobertura">
@@ -95,7 +105,7 @@ export default function Coverage() {
         <div className="coverage-card">
           <iframe
             src={embed}
-            title={`Ubicación de ${site.legalName} en ${site.address.city}`}
+            title={`Zona de operación de ${site.legalName}: ${site.address.city} y el litoral`}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
@@ -107,6 +117,9 @@ export default function Coverage() {
                 {site.zones}
               </span>
             </div>
+            <a className="btn btn-outline btn-sm" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+              Cómo llegar
+            </a>
           </div>
         </div>
       </div>
