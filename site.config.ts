@@ -313,6 +313,38 @@ export const site = {
       q: "¿Hacen mantención periódica?",
       a: "Sí: mantención preventiva y correctiva de instalaciones, tableros y sistemas eléctricos, programada según la operación del cliente.",
     },
+    {
+      q: "¿Cuál es la diferencia entre baja y media tensión?",
+      a: "La baja tensión es la que llega a la mayoría de los consumos —enchufes, iluminación, equipos— y la media tensión es la que alimenta instalaciones grandes desde la red de distribución, normalmente a través de una subestación propia. Intervenir en media tensión exige categoría de instalador que lo habilite y procedimientos de trabajo distintos: no es lo mismo ni lo puede hacer cualquiera.",
+    },
+    {
+      q: "¿Qué es un empalme y cuándo hay que aumentar la potencia?",
+      a: "El empalme es el punto donde la instalación se conecta a la red de la distribuidora, y define la potencia máxima disponible. Cuando la operación crece —maquinaria nueva, más carga, un cambio de rubro— la potencia contratada se queda corta y se manifiesta en protecciones que saltan o caídas de tensión. Ahí corresponde evaluar un aumento de potencia y gestionarlo con la distribuidora.",
+    },
+    {
+      q: "¿Se puede declarar una instalación antigua?",
+      a: "Depende de su estado. Primero hay que revisarla y normalizar lo que no cumple: conductores subdimensionados, empalmes provisorios, falta de protecciones o de puesta a tierra. Una vez que la instalación está en condiciones, puede ser declarada por el instalador autorizado que se hace responsable de ella.",
+    },
+    {
+      q: "¿Necesito un proyecto eléctrico para mi local?",
+      a: "Cuando hay potencia relevante, público circulando o exigencias del mandante, del mall o de la distribuidora, sí. El proyecto es lo que permite dimensionar con criterio en vez de a ojo, y es lo que suele pedirse para recepcionar o para tramitar la conexión. En la visita técnica se define si el caso lo requiere.",
+    },
+    {
+      q: "¿Trabajan con la operación funcionando?",
+      a: "Es lo habitual en locales y empresas. Los trabajos se programan por etapas y con cortes acotados, coordinados con la administración o la jefatura del lugar. Lo que sí se dice de frente es cuándo un trabajo obliga a cortar: no se promete continuidad donde técnicamente no la hay.",
+    },
+  ],
+
+  /* ── Qué se necesita para cotizar ──────────────────────────
+   * Vale para cualquier servicio: se muestra en cada ficha.
+   * Nada de esto es obligatorio — si no está, se levanta en terreno.
+   */
+  paraCotizar: [
+    "La dirección del lugar y el tipo de recinto (local, oficina, faena, vivienda).",
+    "Qué equipos o cargas hay que alimentar, si ya están definidos.",
+    "La potencia contratada actual, que aparece en la boleta de electricidad.",
+    "Fotos del tablero y del empalme: adelantan buena parte del diagnóstico.",
+    "La fecha en que necesitas el trabajo terminado.",
   ],
 } as const;
 

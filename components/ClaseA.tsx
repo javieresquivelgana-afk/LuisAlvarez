@@ -50,9 +50,10 @@ export default function ClaseA() {
             </li>
           </ul>
 
-          <div className="hero-actions" style={{ margin: "28px 0 0" }}>
-            <a className="btn btn-ghost" href="/clase-a">
+          <div className="hero-actions" style={{ margin: "30px 0 0" }}>
+            <a className="link-arrow" href="/clase-a">
               Qué implica la licencia Clase A
+              <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>
           </div>
         </div>

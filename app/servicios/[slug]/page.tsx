@@ -138,15 +138,47 @@ export default async function ServicioPage({ params }: Params) {
             </a>
             {wa ? (
               <a
-                className="btn btn-outline"
+                className="link-arrow"
                 href={wa}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Consultar por WhatsApp
+                <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </a>
             ) : null}
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap split">
+          <div>
+            <span className="kicker">Antes de cotizar</span>
+            <h2 className="section-title">
+              Qué conviene tener a mano
+            </h2>
+            <p className="section-lead">
+              Nada de esto es obligatorio: si no lo tienes, se levanta en la
+              visita técnica. Pero mientras más claro llegue el requerimiento,
+              más preciso sale el alcance —y menos cambia el precio después.
+            </p>
+            <div className="hero-actions" style={{ margin: "30px 0 0" }}>
+              <a className="link-arrow" href="/proceso">
+                Ver cómo trabajamos, paso a paso
+                <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </a>
+            </div>
+          </div>
+
+          <ul className="bullets" style={{ marginTop: 0 }}>
+            {site.paraCotizar.map((c) => (
+              <li key={c}>
+                <Check />
+                {c}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -159,8 +191,9 @@ export default async function ServicioPage({ params }: Params) {
           </div>
 
           <div className="hero-actions" style={{ marginBottom: 0 }}>
-            <a className="btn btn-outline" href="/servicios">
+            <a className="link-arrow" href="/servicios">
               Ver los nueve servicios
+              <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>
           </div>
         </div>

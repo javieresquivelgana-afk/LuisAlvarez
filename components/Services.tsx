@@ -31,12 +31,11 @@ export function ServicesGrid({
       {items.map((s) => (
         <a className="service-card" key={s.id} href={`/servicios/${s.id}`}>
           <span className="service-code">{s.code}</span>
-          <h3>{s.name}</h3>
-          <p>{s.desc}</p>
-          <span className="service-link">
-            Ver el servicio
+          <h3>
+            {s.name}
             <Arrow />
-          </span>
+          </h3>
+          <p>{s.desc}</p>
         </a>
       ))}
     </div>
@@ -63,8 +62,9 @@ export default function Services() {
               declaración de la instalación.
             </p>
           </div>
-          <a className="btn btn-outline" href="/servicios">
+          <a className="link-arrow" href="/servicios">
             Ver los nueve servicios
+            <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </a>
         </div>
 

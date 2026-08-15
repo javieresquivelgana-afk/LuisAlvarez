@@ -22,7 +22,7 @@ export default function FinalCTA() {
           </a>
           {wa ? (
             <a
-              className="btn btn-ghost btn-lg"
+              className="link-arrow"
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
@@ -30,7 +30,7 @@ export default function FinalCTA() {
               WhatsApp {site.phone}
             </a>
           ) : (
-            <a className="btn btn-ghost btn-lg" href={telHref}>
+            <a className="link-arrow" href={telHref}>
               Llamar {site.phone}
             </a>
           )}

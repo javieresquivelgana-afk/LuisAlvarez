@@ -34,9 +34,10 @@ export default function Process() {
               cotiza. Así el precio corresponde a lo que hay que hacer y no a
               un supuesto.
             </p>
-            <div className="hero-actions" style={{ margin: "26px 0 0" }}>
-              <a className="btn btn-outline" href="/proceso">
+            <div className="hero-actions" style={{ margin: "28px 0 0" }}>
+              <a className="link-arrow" href="/proceso">
                 Ver el proceso completo
+                <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </a>
             </div>
           </div>

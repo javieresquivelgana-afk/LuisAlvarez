@@ -136,22 +136,15 @@ export default function Hero() {
         </div>
 
         <div className="hero-strip">
-          <div>
-            <b>Baja y media tensión</b>
-            <span>Redes, empalmes y obras de fuerza</span>
-          </div>
-          <div>
-            <b>Licencia Clase A</b>
-            <span>Sin límite de potencia · declaración SEC</span>
-          </div>
-          <div>
-            <b>Empresas y locales</b>
-            <span>Retail, cadenas, edificios y faenas</span>
-          </div>
-          <div>
-            <b>{site.address.city}, {site.address.region}</b>
-            <span>{site.zones}</span>
-          </div>
+          <span>
+            <b>Clase A</b> sin límite de potencia
+          </span>
+          <span>
+            <b>BT y MT</b> redes, empalmes y fuerza
+          </span>
+          <span>
+            <b>{site.address.city}</b> {site.address.region}
+          </span>
         </div>
       </div>
 
@@ -166,10 +159,6 @@ export default function Hero() {
           />
         ))}
       </div>
-
-      <span className="hero-scroll" aria-hidden="true">
-        Desliza
-      </span>
     </section>
   );
 }

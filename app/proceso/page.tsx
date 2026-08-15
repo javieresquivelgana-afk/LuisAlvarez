@@ -21,6 +21,25 @@ const preparar = [
   "La fecha en que necesitas el trabajo terminado.",
 ];
 
+const cierre = [
+  {
+    t: "La instalación probada",
+    d: "Pruebas de funcionamiento con carga real, no solo continuidad de cables. Si algo no responde como debe, se corrige antes de la entrega.",
+  },
+  {
+    t: "El tablero identificado",
+    d: "Circuitos rotulados y protecciones reconocibles. Quien opere el lugar después tiene que poder entender el tablero sin llamar a nadie.",
+  },
+  {
+    t: "En condiciones de declararse",
+    d: "El trabajo se ejecuta para que la instalación pueda ser declarada ante la SEC bajo la responsabilidad del instalador Clase A a cargo.",
+  },
+  {
+    t: "Lo pendiente, por escrito",
+    d: "Si en el camino aparece algo fuera del alcance contratado, se informa y se separa de lo entregado. No se disfraza de trabajo terminado.",
+  },
+];
+
 const Check = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
     <path
@@ -88,6 +107,25 @@ export default function ProcesoPage() {
             <a className="btn btn-primary" href="/contacto">
               Partir por el paso 1
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-soft">
+        <div className="wrap">
+          <span className="kicker">Al cierre</span>
+          <h2 className="section-title">Qué queda cuando el trabajo termina</h2>
+          <p className="section-lead">
+            Una obra eléctrica no se cierra cuando enciende: se cierra cuando
+            queda operable, entendible y en regla.
+          </p>
+          <div className="steps">
+            {cierre.map((c) => (
+              <div className="step" key={c.t}>
+                <h3>{c.t}</h3>
+                <p>{c.d}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

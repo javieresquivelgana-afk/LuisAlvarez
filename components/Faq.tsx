@@ -18,8 +18,9 @@ export default function Faq({ full = false }: { full?: boolean }) {
 
         <div className="hero-actions" style={{ margin: "34px 0 0" }}>
           {full ? null : (
-            <a className="btn btn-outline" href="/preguntas">
+            <a className="link-arrow" href="/preguntas">
               Ver todas las preguntas
+              <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>
           )}
           <a className="btn btn-primary" href="/contacto">
