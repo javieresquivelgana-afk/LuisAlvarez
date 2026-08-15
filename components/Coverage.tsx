@@ -35,7 +35,7 @@ const Ig = () => (
   </svg>
 );
 
-export default function Coverage() {
+export default function Coverage({ bare = false }: { bare?: boolean }) {
   /**
    * Mapa de la zona base, servido por OpenStreetMap: no necesita API key
    * ni cookies de terceros, y siempre carga (el embed de Google queda en
@@ -54,10 +54,14 @@ export default function Coverage() {
     <section className="section" id="cobertura">
       <div className="wrap coverage">
         <div>
-          <span className="kicker">Cobertura</span>
-          <h2 className="section-title">
-            Base en {site.address.city}, obra donde el proyecto lo pida
-          </h2>
+          {bare ? null : (
+            <>
+              <span className="kicker">Cobertura</span>
+              <h2 className="section-title">
+                Base en {site.address.city}, obra donde el proyecto lo pida
+              </h2>
+            </>
+          )}
           <p className="section-lead">
             Casa matriz en el puerto de {site.address.city}. Se atienden
             proyectos en {site.zones}; fuera de esa zona, se evalúa caso a

@@ -6,9 +6,7 @@ export default function Experience() {
     <section className="section" id="experiencia">
       <div className="wrap">
         <span className="kicker">Experiencia</span>
-        <h2 className="section-title">
-          Proyectos ejecutados para operaciones que no pueden parar
-        </h2>
+        <h2 className="section-title">Los sectores que se atienden</h2>
         <p className="section-lead">
           Locales con fecha de apertura, cadenas con estándar propio y
           empresas de servicios. Cada frente tiene sus tiempos y su forma de

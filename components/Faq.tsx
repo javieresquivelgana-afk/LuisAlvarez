@@ -4,8 +4,14 @@ export default function Faq({ full = false }: { full?: boolean }) {
   return (
     <section className="section section-soft" id="preguntas">
       <div className="wrap">
-        <span className="kicker">Preguntas frecuentes</span>
-        <h2 className="section-title">Lo que preguntan antes de contratar</h2>
+        {full ? null : (
+          <>
+            <span className="kicker">Preguntas frecuentes</span>
+            <h2 className="section-title">
+              Lo que preguntan antes de contratar
+            </h2>
+          </>
+        )}
 
         <div className="faq">
           {site.faq.map((f, i) => (

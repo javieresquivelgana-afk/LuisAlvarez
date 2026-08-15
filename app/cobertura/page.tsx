@@ -39,7 +39,7 @@ export default function CoberturaPage() {
         crumbs={crumbs}
         cta={{ href: "/contacto", label: "Consultar por mi zona" }}
       />
-      <Coverage />
+      <Coverage bare />
 
       <section className="section section-soft">
         <div className="wrap">

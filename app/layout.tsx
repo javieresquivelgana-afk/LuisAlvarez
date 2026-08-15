@@ -1,16 +1,35 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Source_Sans_3 } from "next/font/google";
+import { Inter_Tight, IBM_Plex_Sans, Public_Sans } from "next/font/google";
 import { site, fullAddress } from "@/site.config";
 import "./globals.css";
 
-const archivo = Archivo({
+/**
+ * Tres tipografías con un rol cada una:
+ *
+ *  - Titulares  → Inter Tight. Grotesca de caja alta y ajuste cerrado:
+ *    dice lo suyo sin adornos y aguanta tamaños grandes sobre video.
+ *  - Subtítulos → IBM Plex Sans. Nace en un contexto de ingeniería y
+ *    lo transmite; se usa en antetítulos, subtítulos, botones,
+ *    navegación y etiquetas de formulario.
+ *  - Cuerpo     → Public Sans. Hecha para el sistema de diseño del
+ *    gobierno de EE.UU., con criterios de legibilidad y accesibilidad;
+ *    letras abiertas que se leen sin esfuerzo en párrafo largo.
+ */
+const titleFont = Inter_Tight({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-display",
+  weight: ["600", "700"],
+  variable: "--font-title",
   display: "swap",
 });
 
-const sourceSans = Source_Sans_3({
+const subFont = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-sub",
+  display: "swap",
+});
+
+const bodyFont = Public_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-body",
@@ -58,7 +77,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es-CL" className={`${archivo.variable} ${sourceSans.variable}`}>
+    <html
+      lang="es-CL"
+      className={`${titleFont.variable} ${subFont.variable} ${bodyFont.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
