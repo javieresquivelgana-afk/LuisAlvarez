@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import FinalCTA from "@/components/FinalCTA";
+import PageNav from "@/components/PageNav";
 
 /**
  * Envoltorio de las páginas interiores: mismo header, mismo cierre y
@@ -12,15 +13,19 @@ import FinalCTA from "@/components/FinalCTA";
 export default function SitePage({
   children,
   cta = true,
+  path,
 }: {
   children: React.ReactNode;
   cta?: boolean;
+  /** Ruta de la página: activa el pie de anterior/siguiente. */
+  path?: string;
 }) {
   return (
     <>
       <Header />
       <main>
         {children}
+        {path ? <PageNav current={path} /> : null}
         {cta ? <FinalCTA /> : null}
       </main>
       <Footer />

@@ -77,8 +77,7 @@ export default function AgendaForm() {
           <span className="kicker">Agenda tu visita</span>
           <h2 className="section-title">Solicita una visita técnica</h2>
           <p className="section-lead">
-            Cuéntanos qué necesitas y coordinamos una evaluación en terreno
-            para tu proyecto o instalación.
+            Cuéntanos qué necesitas y coordinamos la evaluación en terreno.
           </p>
           <ul>
             <li>
@@ -244,8 +243,7 @@ export default function AgendaForm() {
           </div>
 
           <p className="form-note">
-            Una vez enviada la solicitud, nos contactaremos contigo para
-            confirmar la visita técnica.
+            Te contactamos para confirmar día y hora de la visita.
           </p>
 
           <button

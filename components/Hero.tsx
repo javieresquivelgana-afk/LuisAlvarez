@@ -4,36 +4,28 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { site, waLink } from "@/site.config";
 
 /**
- * Hero a pantalla completa con secuencia de video.
+ * Hero a pantalla completa: dos clips en loop continuo — torres y
+ * líneas de media tensión, y campo de paneles fotovoltaicos. Se cruzan
+ * por opacidad cada 15 s, que es lo que dura cada clip, así el corte
+ * cae en el punto en que el video vuelve a empezar y no se nota.
  *
- * Cada clip corresponde a un frente real del servicio: trabajo sobre
- * tableros, redes de media tensión y generación fotovoltaica. Los clips
- * se cruzan por opacidad; el navegador solo mantiene 3 videos mudos,
- * en loop y sin controles, con póster para la primera pintura.
- *
- * Se sirve una versión liviana (-sm, 640px) a pantallas chicas: la
+ * Ambos van mudos, sin controles y con póster para la primera pintura.
+ * A pantallas chicas se les sirve la versión liviana (-sm): la
  * resolución se decide en el cliente con matchMedia — el atributo
  * `media` de <source> no es confiable dentro de <video>.
  */
 const clips = [
   {
-    src: "hero-tablero",
-    alt: "Especialistas revisando tableros eléctricos en sala técnica",
-    tag: "Tableros y salas eléctricas",
-  },
-  {
     src: "hero-lineas",
-    alt: "Líneas y torres de media tensión al atardecer",
     tag: "Redes de baja y media tensión",
   },
   {
     src: "hero-solar",
-    alt: "Instalación de paneles fotovoltaicos",
     tag: "Generación fotovoltaica",
   },
 ];
 
-const CLIP_MS = 8000;
+const CLIP_MS = 15000;
 
 const wa = waLink();
 
@@ -92,7 +84,7 @@ export default function Hero() {
             muted
             loop
             playsInline
-            preload={i === 0 ? "auto" : "metadata"}
+            preload={i === 0 ? "auto" : "none"}
           />
         ))}
       </div>
@@ -111,9 +103,9 @@ export default function Hero() {
         </h1>
 
         <p className="hero-sub">
-          {site.legalName} Proyectos, redes de baja y media tensión, obras de
-          fuerza, empalmes, mantenimiento y generación fotovoltaica —
-          ejecutados y declarados por instalador eléctrico Clase A.
+          {site.legalName} — proyectos, redes, empalmes, mantenimiento y
+          generación fotovoltaica, ejecutados y declarados por instalador
+          eléctrico Clase A.
         </p>
 
         <div className="hero-actions">

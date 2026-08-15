@@ -25,7 +25,7 @@ const faqLd = {
 
 export default function PreguntasPage() {
   return (
-    <SitePage>
+    <SitePage path="/preguntas">
       <BreadcrumbLd items={crumbs} />
       <script
         type="application/ld+json"
@@ -34,7 +34,7 @@ export default function PreguntasPage() {
       <PageHero
         kicker="Preguntas frecuentes"
         title="Lo que preguntan antes de contratar"
-        lead="Licencia, declaración ante la SEC, cómo parte un proyecto y qué se necesita para cotizar. Si tu duda no está acá, se responde por WhatsApp."
+        lead="Licencia, declaración ante la SEC y cómo se cotiza. Si tu duda no está acá, se responde por WhatsApp."
         media="franja-subestacion"
         crumbs={crumbs}
       />

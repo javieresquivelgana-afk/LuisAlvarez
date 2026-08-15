@@ -30,9 +30,8 @@ export default function Process() {
               Cuatro pasos, sin sorpresas a mitad de obra
             </h2>
             <p className="section-lead">
-              El orden importa: primero se mira la instalación, después se
-              cotiza. Así el precio corresponde a lo que hay que hacer y no a
-              un supuesto.
+              Primero se mira la instalación, después se cotiza. Así el precio
+              corresponde al trabajo y no a un supuesto.
             </p>
             <div className="hero-actions" style={{ margin: "28px 0 0" }}>
               <a className="link-arrow" href="/proceso">

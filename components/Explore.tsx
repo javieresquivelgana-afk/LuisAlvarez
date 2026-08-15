@@ -20,32 +20,32 @@ const destinos = [
   {
     href: "/servicios",
     label: "Servicios",
-    desc: "Las nueve líneas de trabajo, cada una con su ficha: alcance, qué incluye y cuándo se necesita.",
+    desc: "Las nueve líneas de trabajo, cada una con su ficha.",
   },
   {
     href: "/clase-a",
     label: "Clase A",
-    desc: "Qué habilita la licencia, qué es declarar una instalación y por qué te la exigen.",
+    desc: "Qué habilita la licencia y por qué te la exigen.",
   },
   {
     href: "/experiencia",
     label: "Experiencia",
-    desc: "Los sectores donde se ha trabajado y cómo se ejecuta con la operación funcionando.",
+    desc: "Sectores atendidos y cómo entra una obra en marcha.",
   },
   {
     href: "/proceso",
     label: "Cómo trabajamos",
-    desc: "Del primer contacto a la entrega: visita técnica, cotización con alcance y ejecución.",
+    desc: "Del primer contacto a la entrega, en cuatro pasos.",
   },
   {
     href: "/cobertura",
     label: "Cobertura",
-    desc: `Base en ${site.address.city} y zona de atención declarada, con la dirección en el mapa.`,
+    desc: `Base en ${site.address.city} y zona de atención declarada.`,
   },
   {
     href: "/preguntas",
     label: "Preguntas frecuentes",
-    desc: "Licencia, declaración ante la SEC, cómo parte un proyecto y qué se necesita para cotizar.",
+    desc: "Diez respuestas sobre licencia, SEC y cotización.",
   },
 ];
 
@@ -56,8 +56,7 @@ export default function Explore() {
         <span className="kicker">Seguir mirando</span>
         <h2 className="section-title">Lo demás, con el detalle completo</h2>
         <p className="section-lead">
-          Esta portada muestra lo esencial. Cada tema tiene su propia página,
-          sin resúmenes a medias.
+          Cada tema tiene su propia página, sin resúmenes a medias.
         </p>
 
         <div className="explore-grid">

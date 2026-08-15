@@ -30,13 +30,13 @@ const criterios = [
 
 export default function ServiciosPage() {
   return (
-    <SitePage>
+    <SitePage path="/servicios">
       <BreadcrumbLd items={crumbs} />
       <PageHero
         kicker="Servicios"
         title="Todo lo eléctrico de una obra, bajo una sola licencia"
-        lead="Nueve líneas de trabajo que cubren el ciclo completo: proyectar, ejecutar, energizar, mantener y dejar la instalación en condiciones de ser declarada."
-        media="hero-tablero"
+        lead="Nueve líneas de trabajo: proyectar, ejecutar, energizar, mantener y dejar la instalación en condiciones de ser declarada."
+        media="franja-subestacion"
         crumbs={crumbs}
       />
 
@@ -45,8 +45,7 @@ export default function ServiciosPage() {
           <span className="kicker">Catálogo</span>
           <h2 className="section-title">Elige el frente que necesitas</h2>
           <p className="section-lead">
-            Cada servicio tiene su ficha con el alcance del trabajo y las
-            señales concretas de que hace falta.
+            Cada ficha trae el alcance del trabajo y cuándo hace falta.
           </p>
           <div style={{ marginTop: 38 }}>
             <ServicesGrid />

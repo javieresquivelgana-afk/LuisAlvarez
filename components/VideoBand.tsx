@@ -1,10 +1,10 @@
 import LazyVideo from "@/components/LazyVideo";
 
 const stats = [
-  { n: "Clase A", t: "Máxima categoría del registro SEC de instaladores" },
-  { n: "BT + MT", t: "Baja y media tensión bajo un mismo equipo" },
-  { n: "09", t: "Líneas de servicio, del proyecto a la mantención" },
-  { n: "TE1", t: "Instalaciones ejecutadas para quedar declaradas" },
+  { n: "Clase A", t: "Máxima categoría del registro SEC" },
+  { n: "BT + MT", t: "Baja y media tensión" },
+  { n: "09", t: "Líneas de servicio" },
+  { n: "TE1", t: "Instalaciones declarables" },
 ];
 
 export default function VideoBand() {
@@ -16,9 +16,8 @@ export default function VideoBand() {
         <h2>Obras donde la electricidad no admite improvisación</h2>
         <p>
           Subestaciones, salas eléctricas, tableros de fuerza y redes en
-          operación. Trabajos que exigen criterio de ingeniería, coordinación
-          con la distribuidora y un responsable con licencia para firmar lo que
-          se ejecuta.
+          operación: trabajos que exigen licencia para firmar lo que se
+          ejecuta.
         </p>
 
         <div className="stats">

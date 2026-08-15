@@ -23,12 +23,9 @@ export default function ClaseA() {
             Clase A: la categoría más alta del registro de instaladores
           </h2>
           <p className="section-lead">
-            La licencia Clase A es la máxima categoría del registro de
-            instaladores eléctricos autorizados de la SEC. Habilita a
-            proyectar, ejecutar y declarar instalaciones sin las limitaciones
-            de potencia que sí aplican a las categorías inferiores — por eso es
-            la que exigen los proyectos de empresas, edificios y locales
-            comerciales.
+            Habilita a proyectar, ejecutar y declarar instalaciones sin el
+            límite de potencia de las categorías inferiores. Por eso es la que
+            exigen empresas, edificios y locales comerciales.
           </p>
 
           <ul className="bullets">

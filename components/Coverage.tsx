@@ -59,10 +59,9 @@ export default function Coverage() {
             Base en {site.address.city}, obra donde el proyecto lo pida
           </h2>
           <p className="section-lead">
-            La casa matriz está en el puerto de {site.address.city}, y desde
-            ahí se atienden proyectos en {site.zones}. Si tu obra queda fuera de
-            esa zona, escríbenos igual: se evalúa según el tamaño y el plazo del
-            trabajo.
+            Casa matriz en el puerto de {site.address.city}. Se atienden
+            proyectos en {site.zones}; fuera de esa zona, se evalúa caso a
+            caso.
           </p>
 
           <div className="coverage-meta" style={{ borderTop: 0, padding: 0, marginTop: 28 }}>

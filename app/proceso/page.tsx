@@ -54,12 +54,12 @@ const Check = () => (
 
 export default function ProcesoPage() {
   return (
-    <SitePage>
+    <SitePage path="/proceso">
       <BreadcrumbLd items={crumbs} />
       <PageHero
         kicker="Cómo trabajamos"
         title="Primero se mira la instalación, después se cotiza"
-        lead="El orden no es un detalle: es lo que evita que el precio cambie a mitad de obra. Cuatro pasos, con la responsabilidad técnica siempre en la misma mano."
+        lead="El orden es lo que evita que el precio cambie a mitad de obra. Cuatro pasos, con la responsabilidad siempre en la misma mano."
         media="planos"
         crumbs={crumbs}
       />
@@ -73,9 +73,7 @@ export default function ProcesoPage() {
               Con esto en la mano, la visita rinde el doble
             </h2>
             <p className="section-lead">
-              Nada de esto es obligatorio — si no lo tienes, se levanta en
-              terreno. Pero mientras más claro llegue el requerimiento, más
-              preciso sale el alcance.
+              Nada es obligatorio: si no lo tienes, se levanta en terreno.
             </p>
             <ul className="bullets">
               {preparar.map((p) => (
@@ -116,8 +114,8 @@ export default function ProcesoPage() {
           <span className="kicker">Al cierre</span>
           <h2 className="section-title">Qué queda cuando el trabajo termina</h2>
           <p className="section-lead">
-            Una obra eléctrica no se cierra cuando enciende: se cierra cuando
-            queda operable, entendible y en regla.
+            No se cierra cuando enciende, sino cuando queda operable,
+            entendible y en regla.
           </p>
           <div className="steps">
             {cierre.map((c) => (

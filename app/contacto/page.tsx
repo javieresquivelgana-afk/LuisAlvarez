@@ -15,13 +15,13 @@ export const metadata: Metadata = {
 
 export default function ContactoPage() {
   return (
-    <SitePage cta={false}>
+    <SitePage cta={false} path="/contacto">
       <BreadcrumbLd items={crumbs} />
       <PageHero
         kicker="Contacto"
         title="Cuéntanos qué necesitas y vamos a verlo"
-        lead="Toda cotización parte con una visita técnica en terreno. Escribe por WhatsApp para lo urgente, o deja la solicitud completa en el formulario."
-        media="hero-tablero"
+        lead="Toda cotización parte con una visita técnica. WhatsApp para lo urgente; el formulario para dejar el requerimiento completo."
+        media="obra"
         crumbs={crumbs}
         cta={{ href: "#agendar", label: "Ir al formulario" }}
       />

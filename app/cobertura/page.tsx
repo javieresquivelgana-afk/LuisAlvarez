@@ -29,12 +29,12 @@ const modos = [
 
 export default function CoberturaPage() {
   return (
-    <SitePage>
+    <SitePage path="/cobertura">
       <BreadcrumbLd items={crumbs} />
       <PageHero
         kicker="Cobertura"
         title={`Base en ${site.address.city}, obra donde el proyecto lo pida`}
-        lead={`Casa matriz en ${site.address.street}, ${site.address.city}. Zona de atención declarada: ${site.zones}.`}
+        lead={`Casa matriz en ${site.address.city}. Zona de atención: ${site.zones}.`}
         media="hero-lineas"
         crumbs={crumbs}
         cta={{ href: "/contacto", label: "Consultar por mi zona" }}

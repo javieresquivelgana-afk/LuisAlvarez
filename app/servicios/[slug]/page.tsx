@@ -74,7 +74,7 @@ export default async function ServicioPage({ params }: Params) {
   };
 
   return (
-    <SitePage>
+    <SitePage path="/servicios">
       <BreadcrumbLd items={crumbs} />
       <script
         type="application/ld+json"
@@ -159,9 +159,9 @@ export default async function ServicioPage({ params }: Params) {
               Qué conviene tener a mano
             </h2>
             <p className="section-lead">
-              Nada de esto es obligatorio: si no lo tienes, se levanta en la
-              visita técnica. Pero mientras más claro llegue el requerimiento,
-              más preciso sale el alcance —y menos cambia el precio después.
+              Nada es obligatorio: si no lo tienes, se levanta en la visita.
+              Mientras más claro llegue el requerimiento, menos cambia el
+              precio después.
             </p>
             <div className="hero-actions" style={{ margin: "30px 0 0" }}>
               <a className="link-arrow" href="/proceso">

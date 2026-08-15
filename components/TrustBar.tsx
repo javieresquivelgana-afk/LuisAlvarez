@@ -2,10 +2,8 @@ import { site } from "@/site.config";
 
 const items = [
   site.credential,
-  "Declaración de instalaciones ante la SEC",
   "Baja y media tensión",
-  "Empresas, edificios, locales y faenas",
-  "Un solo responsable técnico por obra",
+  "Un solo responsable por obra",
 ];
 
 export default function TrustBar() {

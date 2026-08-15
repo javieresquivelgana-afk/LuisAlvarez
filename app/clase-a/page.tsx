@@ -35,12 +35,12 @@ const puntos = [
 
 export default function ClaseAPage() {
   return (
-    <SitePage>
+    <SitePage path="/clase-a">
       <BreadcrumbLd items={crumbs} />
       <PageHero
         kicker="Respaldo técnico"
         title="Qué significa contratar a un instalador Clase A"
-        lead="La máxima categoría del registro de instaladores eléctricos autorizados de la SEC: sin límite de potencia, en baja y media tensión, con facultad para declarar la instalación."
+        lead="La máxima categoría del registro SEC: sin límite de potencia, en baja y media tensión, con facultad para declarar la instalación."
         media="hero-tablero"
         crumbs={crumbs}
       />

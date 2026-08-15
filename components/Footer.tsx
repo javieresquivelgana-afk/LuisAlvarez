@@ -66,7 +66,7 @@ export default function Footer() {
           <div>
             <h4>Servicios</h4>
             <ul>
-              {site.services.slice(0, 6).map((s) => (
+              {site.services.slice(0, 4).map((s) => (
                 <li key={s.id}>
                   <a href={`/servicios/${s.id}`}>{s.name}</a>
                 </li>

@@ -10,10 +10,9 @@ export default function Experience() {
           Proyectos ejecutados para operaciones que no pueden parar
         </h2>
         <p className="section-lead">
-          Locales comerciales con fecha de apertura, cadenas con estándar
-          propio, empresas de servicios y centros de operación. Cada frente
-          tiene sus tiempos, sus exigencias de seguridad y su forma de
-          recepcionar la obra.
+          Locales con fecha de apertura, cadenas con estándar propio y
+          empresas de servicios. Cada frente tiene sus tiempos y su forma de
+          recibir la obra.
         </p>
 
         <div className="sectors">
@@ -47,10 +46,8 @@ export default function Experience() {
               La obra se resuelve donde está el problema
             </h2>
             <p className="section-lead">
-              Toda cotización parte con una visita técnica: estado real de la
-              instalación, potencia disponible, condiciones del lugar y
-              restricciones de la operación. Recién ahí se define alcance,
-              materiales y plazo.
+              Toda cotización parte con una visita técnica. Recién ahí se
+              define alcance, materiales y plazo.
             </p>
             <ul className="bullets">
               <li>

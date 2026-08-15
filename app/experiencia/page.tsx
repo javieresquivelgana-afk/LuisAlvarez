@@ -35,12 +35,12 @@ export const metadata: Metadata = {
 
 export default function ExperienciaPage() {
   return (
-    <SitePage>
+    <SitePage path="/experiencia">
       <BreadcrumbLd items={crumbs} />
       <PageHero
         kicker="Experiencia"
         title="Obras hechas donde parar la operación no es opción"
-        lead="Locales con fecha de apertura, cadenas con estándar propio, empresas de servicios y centros de operación. Cada frente tiene sus tiempos, su exigencia de seguridad y su forma de recibir la obra."
+        lead="Locales con fecha de apertura, cadenas con estándar propio y centros de operación que no pueden detenerse."
         media="obra"
         crumbs={crumbs}
       />
@@ -53,8 +53,7 @@ export default function ExperienciaPage() {
             Cómo entra una obra donde no se puede parar
           </h2>
           <p className="section-lead">
-            La diferencia entre una obra ordenada y una que deja al cliente sin
-            operar está en lo que se acuerda antes de empezar.
+            La diferencia está en lo que se acuerda antes de empezar.
           </p>
           <div className="steps">
             {ejecucion.map((e) => (

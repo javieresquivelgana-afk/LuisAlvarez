@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Logo from "@/components/Logo";
 import { site, waLink, telHref } from "@/site.config";
 
@@ -9,7 +10,11 @@ const links = [
   { href: "/experiencia", label: "Experiencia" },
   { href: "/clase-a", label: "Clase A" },
   { href: "/proceso", label: "Cómo trabajamos" },
+];
+
+const menuExtra = [
   { href: "/cobertura", label: "Cobertura" },
+  { href: "/preguntas", label: "Preguntas frecuentes" },
 ];
 
 const wa = waLink();
@@ -17,6 +22,11 @@ const wa = waLink();
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  /** Marca la sección donde está el visitante, fichas de servicio incluidas. */
+  const isCurrent = (href: string) =>
+    href === pathname || pathname.startsWith(`${href}/`);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -38,7 +48,11 @@ export default function Header() {
 
           <nav className="nav" aria-label="Navegación principal">
             {links.map((l) => (
-              <a key={l.href} href={l.href}>
+              <a
+                key={l.href}
+                href={l.href}
+                aria-current={isCurrent(l.href) ? "page" : undefined}
+              >
                 {l.label}
               </a>
             ))}
@@ -81,8 +95,13 @@ export default function Header() {
 
       {open ? (
         <div className="mobile-menu">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+          {[...links, ...menuExtra].map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              aria-current={isCurrent(l.href) ? "page" : undefined}
+              onClick={() => setOpen(false)}
+            >
               {l.label}
             </a>
           ))}
@@ -99,9 +118,6 @@ export default function Header() {
               Escribir por WhatsApp
             </a>
           ) : null}
-          <a href="/preguntas" onClick={() => setOpen(false)}>
-            Preguntas frecuentes
-          </a>
           <a
             className="btn btn-primary"
             href="/contacto"
