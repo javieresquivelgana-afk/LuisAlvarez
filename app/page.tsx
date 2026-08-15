@@ -4,20 +4,19 @@ import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
 import Services from "@/components/Services";
 import VideoBand from "@/components/VideoBand";
-import Experience from "@/components/Experience";
-import ClaseA from "@/components/ClaseA";
-import Fotovoltaico from "@/components/Fotovoltaico";
-import Process from "@/components/Process";
-import Coverage from "@/components/Coverage";
-import Faq from "@/components/Faq";
-import AgendaForm from "@/components/AgendaForm";
+import Explore from "@/components/Explore";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 /**
- * Datos estructurados para buscadores. Solo se declaran datos reales,
- * tomados de la tarjeta oficial del cliente (ver site.config.ts).
+ * Portada. Deliberadamente corta: qué se hace, con qué respaldo y cómo
+ * seguir. El desarrollo de cada tema vive en su propia página —
+ * /servicios, /clase-a, /experiencia, /proceso, /cobertura, /preguntas
+ * y /contacto — y se entra desde el bloque «Seguir mirando».
+ *
+ * Datos estructurados: solo datos reales, tomados de la tarjeta oficial
+ * del cliente (ver site.config.ts).
  */
 const jsonLd = {
   "@context": "https://schema.org",
@@ -45,16 +44,6 @@ const jsonLd = {
   })),
 };
 
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: site.faq.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
 export default function Home() {
   return (
     <>
@@ -62,23 +51,13 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-      />
       <Header />
       <main>
         <Hero />
         <TrustBar />
         <Services />
         <VideoBand />
-        <Experience />
-        <ClaseA />
-        <Fotovoltaico />
-        <Process />
-        <Coverage />
-        <Faq />
-        <AgendaForm />
+        <Explore />
         <FinalCTA />
       </main>
       <Footer />

@@ -117,7 +117,7 @@ export default function Hero() {
         </p>
 
         <div className="hero-actions">
-          <a className="btn btn-primary btn-lg" href="#agendar">
+          <a className="btn btn-primary btn-lg" href="/contacto">
             Agenda tu visita técnica
           </a>
           {wa ? (

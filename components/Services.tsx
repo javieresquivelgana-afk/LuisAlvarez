@@ -43,6 +43,11 @@ export function ServicesGrid({
   );
 }
 
+/**
+ * Bloque de servicios de la portada. Muestra solo los primeros seis:
+ * lo justo para que se entienda el alcance, con la puerta abierta a las
+ * nueve fichas completas.
+ */
 export default function Services() {
   return (
     <section className="section section-soft" id="servicios">
@@ -54,17 +59,16 @@ export default function Services() {
               Nueve frentes, un solo responsable técnico
             </h2>
             <p className="section-lead">
-              Desde el proyecto de ingeniería hasta la ejecución, la mantención
-              y la declaración de la instalación. Cada servicio tiene su ficha
-              con alcance y casos concretos.
+              Del proyecto de ingeniería a la ejecución, la mantención y la
+              declaración de la instalación.
             </p>
           </div>
           <a className="btn btn-outline" href="/servicios">
-            Ver todos los servicios
+            Ver los nueve servicios
           </a>
         </div>
 
-        <ServicesGrid />
+        <ServicesGrid limit={6} />
       </div>
     </section>
   );

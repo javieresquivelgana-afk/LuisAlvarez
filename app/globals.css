@@ -863,12 +863,20 @@ h4 {
   position: absolute;
   inset: 0;
   z-index: -1;
+  /* Dos capas: una lateral para el texto y otra que asienta la franja
+     de cifras, que si no quedaba sobre la parte clara del video. */
   background: linear-gradient(
-    100deg,
-    rgba(9, 13, 20, 0.94) 0%,
-    rgba(9, 13, 20, 0.78) 45%,
-    rgba(9, 13, 20, 0.4) 100%
-  );
+      100deg,
+      rgba(9, 13, 20, 0.94) 0%,
+      rgba(9, 13, 20, 0.78) 45%,
+      rgba(9, 13, 20, 0.42) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(9, 13, 20, 0.15) 0%,
+      rgba(9, 13, 20, 0.45) 55%,
+      rgba(9, 13, 20, 0.85) 100%
+    );
 }
 
 .band-in {
@@ -972,6 +980,57 @@ h4 {
   font-size: 14px;
   color: var(--ink);
   background: #fff;
+}
+
+/* ── Seguir mirando (entradas al resto del sitio) ────────── */
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 42px;
+}
+
+.explore-card {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: 24px 24px 26px;
+  transition: border-color 0.18s ease, transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.explore-card:hover {
+  border-color: var(--steel);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.explore-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-d);
+  font-weight: 600;
+  font-size: 18.5px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.explore-label svg {
+  color: var(--steel);
+  transition: transform 0.18s ease;
+}
+
+.explore-card:hover .explore-label svg {
+  transform: translateX(4px);
+}
+
+.explore-card p {
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.6;
 }
 
 /* ── Bloque partido (media + texto) ──────────────────────── */
@@ -1565,7 +1624,8 @@ h4 {
 /* ── Responsive ──────────────────────────────────────────── */
 
 @media (max-width: 1000px) {
-  .services-grid {
+  .services-grid,
+  .explore-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1757,8 +1817,18 @@ h4 {
     margin-bottom: 16px;
   }
 
-  .services-grid {
+  .services-grid,
+  .explore-grid {
     grid-template-columns: 1fr;
+  }
+
+  .explore-grid {
+    margin-top: 30px;
+    gap: 14px;
+  }
+
+  .explore-card {
+    padding: 20px 20px 22px;
   }
 
   .service-card {
