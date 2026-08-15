@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="#top" className="logo" aria-label="Inicio">
+            <a href="/" className="logo" aria-label="Inicio">
               <LogoMark />
               <span className="logo-text">
                 <span className="logo-name">{site.brand}</span>
@@ -68,9 +68,12 @@ export default function Footer() {
             <ul>
               {site.services.slice(0, 6).map((s) => (
                 <li key={s.id}>
-                  <a href="#servicios">{s.name}</a>
+                  <a href={`/servicios/${s.id}`}>{s.name}</a>
                 </li>
               ))}
+              <li>
+                <a href="/servicios">Ver los nueve servicios</a>
+              </li>
             </ul>
           </div>
 
@@ -101,13 +104,13 @@ export default function Footer() {
             <ul>
               <li>{site.zones}</li>
               <li>
-                <a href="#agendar">Agendar visita técnica</a>
+                <a href="/contacto">Agendar visita técnica</a>
               </li>
               <li>
-                <a href="#agendar">Solicitar cotización</a>
+                <a href="/experiencia">Experiencia y sectores</a>
               </li>
               <li>
-                <a href="#preguntas">Preguntas frecuentes</a>
+                <a href="/preguntas">Preguntas frecuentes</a>
               </li>
             </ul>
           </div>

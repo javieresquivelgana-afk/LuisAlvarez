@@ -66,6 +66,12 @@ export default function Experience() {
                 Trabajos programados para no detener la operación.
               </li>
             </ul>
+
+            <div className="hero-actions" style={{ margin: "28px 0 0" }}>
+              <a className="btn btn-outline" href="/experiencia">
+                Ver experiencia y sectores
+              </a>
+            </div>
           </div>
         </div>
       </div>

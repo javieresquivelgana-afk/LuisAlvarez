@@ -31,7 +31,7 @@ export function LogoMark({ className }: { className?: string }) {
 
 export default function Logo({ light = false }: { light?: boolean }) {
   return (
-    <a href="#top" className="logo" aria-label={`${site.legalName} — inicio`}>
+    <a href="/" className="logo" aria-label={`${site.legalName} — inicio`}>
       <LogoMark />
       <span className="logo-text">
         <span className="logo-name">{site.legalName.replace(" Ltda.", "")}</span>

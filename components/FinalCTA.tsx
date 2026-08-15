@@ -17,7 +17,7 @@ export default function FinalCTA() {
           con alcance definido, ejecutada y declarada por instalador Clase A.
         </p>
         <div className="hero-actions">
-          <a className="btn btn-primary btn-lg" href="#agendar">
+          <a className="btn btn-primary btn-lg" href="/contacto">
             Agendar visita técnica
           </a>
           {wa ? (

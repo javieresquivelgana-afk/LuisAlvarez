@@ -5,11 +5,11 @@ import Logo from "@/components/Logo";
 import { site, waLink, telHref } from "@/site.config";
 
 const links = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#experiencia", label: "Experiencia" },
-  { href: "#clase-a", label: "Clase A" },
-  { href: "#proceso", label: "Cómo trabajamos" },
-  { href: "#cobertura", label: "Cobertura" },
+  { href: "/servicios", label: "Servicios" },
+  { href: "/experiencia", label: "Experiencia" },
+  { href: "/clase-a", label: "Clase A" },
+  { href: "/proceso", label: "Cómo trabajamos" },
+  { href: "/cobertura", label: "Cobertura" },
 ];
 
 const wa = waLink();
@@ -48,7 +48,7 @@ export default function Header() {
             <a className="header-phone" href={telHref}>
               {site.phone}
             </a>
-            <a className="btn btn-primary btn-sm" href="#agendar">
+            <a className="btn btn-primary btn-sm" href="/contacto">
               Cotizar
             </a>
             <button
@@ -99,9 +99,12 @@ export default function Header() {
               Escribir por WhatsApp
             </a>
           ) : null}
+          <a href="/preguntas" onClick={() => setOpen(false)}>
+            Preguntas frecuentes
+          </a>
           <a
             className="btn btn-primary"
-            href="#agendar"
+            href="/contacto"
             onClick={() => setOpen(false)}
           >
             Agendar visita técnica

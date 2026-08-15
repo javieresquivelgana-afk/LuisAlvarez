@@ -49,6 +49,12 @@ export default function ClaseA() {
               Cumplimiento normativo verificable ante mandantes y seguros.
             </li>
           </ul>
+
+          <div className="hero-actions" style={{ margin: "28px 0 0" }}>
+            <a className="btn btn-ghost" href="/clase-a">
+              Qué implica la licencia Clase A
+            </a>
+          </div>
         </div>
 
         <div>

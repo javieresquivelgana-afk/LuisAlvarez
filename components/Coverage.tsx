@@ -117,7 +117,12 @@ export default function Coverage() {
                 {site.zones}
               </span>
             </div>
-            <a className="btn btn-outline btn-sm" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <a
+              className="btn btn-outline btn-sm"
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Cómo llegar
             </a>
           </div>

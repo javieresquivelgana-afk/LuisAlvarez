@@ -31,6 +31,14 @@ export default function AgendaForm() {
   const [selectedService, setSelectedService] = useState("");
 
   useEffect(() => {
+    // Las fichas de servicio llegan como /contacto?servicio=<nombre>:
+    // el desplegable queda preseleccionado con lo que el visitante venía
+    // mirando. Solo se acepta un valor que exista en el catálogo.
+    const wanted = new URLSearchParams(window.location.search).get("servicio");
+    if (wanted && site.services.some((s) => s.name === wanted)) {
+      setSelectedService(wanted);
+    }
+
     function onSelectService(event: Event) {
       setSelectedService((event as CustomEvent<string>).detail);
     }

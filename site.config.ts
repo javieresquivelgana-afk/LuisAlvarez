@@ -94,61 +94,198 @@ export const site = {
     },
   ],
 
-  // ── Servicios ─────────────────────────────────────────────
+  /* ── Servicios ─────────────────────────────────────────────
+   * Cada servicio tiene su propia página en /servicios/<id>.
+   *  - `media`  : nombre base del clip en /public/video (y su póster).
+   *  - `intro`  : párrafo de apertura de la ficha.
+   *  - `incluye`: alcance típico del trabajo. Descripción de oficio,
+   *               NO promesa de plazo ni de precio.
+   *  - `cuando` : señales concretas de que el servicio hace falta.
+   */
   services: [
     {
       id: "ingenieria",
       code: "01",
       name: "Ingeniería eléctrica",
       desc: "Diseño, cálculo y desarrollo de proyectos eléctricos con respaldo técnico profesional.",
+      media: "planos",
+      intro:
+        "Antes del primer metro de canalización hay un proyecto: cargas calculadas, conductores dimensionados y protecciones coordinadas. Es la etapa que decide si la instalación va a funcionar bajo carga real o solo en el papel.",
+      incluye: [
+        "Levantamiento de la instalación existente y de la carga proyectada.",
+        "Cálculo de potencia, dimensionamiento de conductores y protecciones.",
+        "Diagramas unilineales, planos de canalización y memoria de cálculo.",
+        "Coordinación de protecciones y criterios de seguridad de la instalación.",
+        "Documentación técnica para presentar ante mandante, ITO o distribuidora.",
+      ],
+      cuando: [
+        "Vas a construir, ampliar o cambiar el uso de un recinto.",
+        "Te exigen proyecto eléctrico firmado por un instalador autorizado.",
+        "La instalación actual no da abasto y hay que dimensionar de nuevo.",
+      ],
     },
     {
       id: "redes-bt-mt",
       code: "02",
       name: "Redes de baja y media tensión",
       desc: "Ejecución y mejoramiento de redes BT y MT para empresas, edificios e instalaciones comerciales.",
+      media: "hero-lineas",
+      intro:
+        "La red es la columna vertebral de la instalación: lo que lleva la energía desde el empalme hasta cada tablero. En media tensión el margen de error es cero, y por eso la ejecuta y firma un instalador Clase A.",
+      incluye: [
+        "Canalizaciones, alimentadores y tendido de conductores BT y MT.",
+        "Montaje y conexionado de tableros de distribución.",
+        "Mallas y sistemas de puesta a tierra.",
+        "Pruebas de continuidad, aislación y puesta en servicio.",
+        "Trabajo coordinado con la operación para minimizar cortes.",
+      ],
+      cuando: [
+        "Necesitas llevar energía a una nave, pabellón o edificio nuevo.",
+        "La red actual está al límite o fue creciendo sin proyecto.",
+        "Hay que intervenir en media tensión y se requiere licencia Clase A.",
+      ],
     },
     {
       id: "fuerza",
       code: "03",
       name: "Obras de fuerza",
       desc: "Instalaciones de fuerza para equipamiento, maquinaria y cargas industriales o comerciales.",
+      media: "hero-tablero",
+      intro:
+        "Hornos, cámaras de frío, compresores, bombas, líneas de producción: cargas que no se cuelgan de un enchufe. Cada equipo necesita su alimentación, su protección y su punto de maniobra.",
+      incluye: [
+        "Alimentadores dedicados por equipo, dimensionados a su curva de partida.",
+        "Tableros de fuerza, partidores y protecciones diferenciadas.",
+        "Tomas industriales, canalización rígida y montaje en terreno.",
+        "Conexionado y pruebas de funcionamiento con el equipo en marcha.",
+      ],
+      cuando: [
+        "Llega maquinaria nueva y no hay alimentación para ella.",
+        "Los equipos hacen saltar protecciones o caen las tensiones al partir.",
+        "Necesitas dejar puntos de fuerza listos antes de que entre el equipo.",
+      ],
     },
     {
       id: "mantenimiento",
       code: "04",
       name: "Mantenimiento eléctrico",
       desc: "Mantención preventiva y correctiva de instalaciones, tableros y sistemas eléctricos.",
+      media: "hero-tablero",
+      intro:
+        "La mayoría de las fallas eléctricas avisan antes: conexiones flojas que se calientan, aislaciones que se degradan, protecciones que ya no corresponden a la carga. La mantención existe para encontrarlas antes de que paren la operación.",
+      incluye: [
+        "Revisión y apriete de conexiones, limpieza y ordenamiento de tableros.",
+        "Medición de aislación, continuidad y equilibrio de cargas.",
+        "Verificación de protecciones y puesta a tierra.",
+        "Reparación de fallas y reposición de componentes dañados.",
+        "Informe del estado de la instalación con lo urgente separado de lo programable.",
+      ],
+      cuando: [
+        "Saltan protecciones sin causa clara o hay olor a recalentamiento.",
+        "La instalación lleva años sin que nadie la revise a fondo.",
+        "Necesitas una rutina programada para no depender de la emergencia.",
+      ],
     },
     {
       id: "lineas",
       code: "05",
       name: "Mejoramiento de líneas",
       desc: "Normalización y mejora de líneas eléctricas existentes para mayor seguridad y capacidad.",
+      media: "hero-lineas",
+      intro:
+        "Instalaciones que crecieron por parche: empalmes improvisados, conductores subdimensionados, canalizaciones a la vista. Normalizar es dejar esa línea con la capacidad y la seguridad que la operación de hoy necesita.",
+      incluye: [
+        "Diagnóstico de la línea existente y de su capacidad real.",
+        "Recambio de conductores y canalizaciones que quedaron cortos.",
+        "Eliminación de empalmes provisorios y ordenamiento del trazado.",
+        "Refuerzo de protecciones y puesta a tierra.",
+      ],
+      cuando: [
+        "La instalación fue creciendo sin proyecto y hoy nadie sabe qué alimenta qué.",
+        "Hay caídas de tensión, calentamiento o cortes intermitentes.",
+        "Una inspección, un seguro o un mandante te exige normalizar.",
+      ],
     },
     {
       id: "empalmes",
       code: "06",
       name: "Empalmes de baja y media tensión",
       desc: "Empalmes BT y MT, aumentos de potencia y gestión del trámite con la distribuidora.",
+      media: "franja-subestacion",
+      intro:
+        "El empalme es la puerta de entrada de la energía y el punto donde se cruzan la obra y la distribuidora. Además de ejecutarlo, hay que dejar la instalación en condiciones de ser declarada para que la conexión avance.",
+      incluye: [
+        "Evaluación de la potencia requerida y del empalme existente.",
+        "Ejecución de empalmes BT y MT y aumentos de potencia.",
+        "Preparación de la instalación para su declaración ante la SEC.",
+        "Gestión y seguimiento del trámite con la distribuidora.",
+      ],
+      cuando: [
+        "Abres un local o una faena y necesitas energía formal desde cero.",
+        "La potencia contratada te quedó chica para la operación actual.",
+        "Te rechazaron o dejaron detenido un trámite de conexión.",
+      ],
     },
     {
       id: "fotovoltaico",
       code: "07",
       name: "Generación fotovoltaica",
       desc: "Instalación de paneles solares para autoconsumo en empresas, locales y viviendas.",
+      media: "solar-campo",
+      intro:
+        "Un sistema solar se conecta a un tablero, un empalme y una instalación que ya existen. Cuando el mismo instalador Clase A ve los dos lados, el sistema se dimensiona con la realidad eléctrica del lugar y no con una planilla genérica.",
+      incluye: [
+        "Evaluación de consumo, techumbre o terreno y capacidad del empalme.",
+        "Dimensionamiento del sistema y selección de paneles e inversor.",
+        "Montaje de estructura, paneles, inversor y protecciones DC/AC.",
+        "Conexión al tablero e instalación dejada en condiciones de declararse.",
+      ],
+      cuando: [
+        "La cuenta de luz ya pesa en el costo de operación.",
+        "Tienes techumbre o terreno disponible sin uso.",
+        "Quieres evaluar autoconsumo con números de tu instalación, no de un folleto.",
+      ],
     },
     {
       id: "locales",
       code: "08",
       name: "Proyectos para locales comerciales",
       desc: "Habilitación eléctrica completa de locales: tableros, iluminación, fuerza y declaración.",
+      media: "obra",
+      intro:
+        "Un local tiene fecha de apertura, y la eléctrica suele ser el cuello de botella: sin tablero, sin puntos de fuerza y sin declaración no hay recepción ni entrega. La habilitación se planifica con esa fecha a la vista.",
+      incluye: [
+        "Tablero general del local, alimentadores y protecciones.",
+        "Iluminación general, de trabajo y de emergencia.",
+        "Puntos de fuerza para equipamiento de cocina, frío y climatización.",
+        "Instalación dejada en condiciones de ser declarada ante la SEC.",
+        "Coordinación con la administración del centro comercial o del arriendo.",
+      ],
+      cuando: [
+        "Tomas un local en obra gruesa o recibido a medias.",
+        "Cambias el rubro del local y la instalación no da para el nuevo uso.",
+        "El mall o el mandante te exige la eléctrica declarada para abrir.",
+      ],
     },
     {
       id: "edificios",
       code: "09",
       name: "Proyectos para edificios y empresas",
       desc: "Proyectos eléctricos integrales para edificios, oficinas y operaciones de empresas.",
+      media: "franja-subestacion",
+      intro:
+        "En un edificio o una operación de empresa la instalación es un sistema completo: sala eléctrica, alimentadores verticales, servicios generales y consumos por unidad. Cada intervención tiene que entrar sin dejar a nadie sin energía.",
+      incluye: [
+        "Proyecto y ejecución de tableros generales y de piso.",
+        "Alimentadores, canalizaciones y servicios generales.",
+        "Iluminación de áreas comunes y circuitos de emergencia.",
+        "Trabajos programados por etapas, coordinados con administración.",
+      ],
+      cuando: [
+        "El edificio u oficina necesita normalizar o ampliar su instalación.",
+        "Hay que ejecutar sin cortar la energía de toda la operación.",
+        "Se requiere un responsable técnico único frente al mandante.",
+      ],
     },
   ],
 

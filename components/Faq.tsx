@@ -1,6 +1,6 @@
 import { site } from "@/site.config";
 
-export default function Faq() {
+export default function Faq({ full = false }: { full?: boolean }) {
   return (
     <section className="section section-soft" id="preguntas">
       <div className="wrap">
@@ -14,6 +14,17 @@ export default function Faq() {
               <p>{f.a}</p>
             </details>
           ))}
+        </div>
+
+        <div className="hero-actions" style={{ margin: "34px 0 0" }}>
+          {full ? null : (
+            <a className="btn btn-outline" href="/preguntas">
+              Ver todas las preguntas
+            </a>
+          )}
+          <a className="btn btn-primary" href="/contacto">
+            Hacer mi consulta
+          </a>
         </div>
       </div>
     </section>

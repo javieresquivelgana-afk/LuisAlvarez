@@ -51,8 +51,11 @@ export default function Fotovoltaico() {
           </ul>
 
           <div className="hero-actions" style={{ margin: "28px 0 0" }}>
-            <a className="btn btn-primary" href="#agendar">
-              Evaluar mi proyecto solar
+            <a className="btn btn-primary" href="/servicios/fotovoltaico">
+              Ver el servicio fotovoltaico
+            </a>
+            <a className="btn btn-outline" href="/contacto?servicio=Generaci%C3%B3n%20fotovoltaica">
+              Evaluar mi proyecto
             </a>
           </div>
         </div>

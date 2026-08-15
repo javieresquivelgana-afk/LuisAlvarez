@@ -34,6 +34,11 @@ export default function Process() {
               cotiza. Así el precio corresponde a lo que hay que hacer y no a
               un supuesto.
             </p>
+            <div className="hero-actions" style={{ margin: "26px 0 0" }}>
+              <a className="btn btn-outline" href="/proceso">
+                Ver el proceso completo
+              </a>
+            </div>
           </div>
           <div className="split-media" style={{ aspectRatio: "16 / 10" }}>
             <LazyVideo name="planos" />
