@@ -1,10 +1,26 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { waLink } from "@/site.config";
 
-export default function WhatsAppFloat() {
-  const wa = waLink();
+const wa = waLink();
 
-  // Sin número real todavía: no se renderiza un botón flotante muerto.
-  if (!wa) return null;
+/**
+ * Botón flotante de WhatsApp. Aparece recién cuando el visitante pasó
+ * el hero: arriba ya existe el botón de WhatsApp del héroe y el
+ * flotante solo tapaba contenido.
+ */
+export default function WhatsAppFloat() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.9);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  if (!wa || !visible) return null;
 
   return (
     <a

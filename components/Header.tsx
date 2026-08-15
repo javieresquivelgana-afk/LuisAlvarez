@@ -1,44 +1,113 @@
-import { site, waLink } from "@/site.config";
+"use client";
+
+import { useEffect, useState } from "react";
+import Logo from "@/components/Logo";
+import { site, waLink, telHref } from "@/site.config";
+
+const links = [
+  { href: "#servicios", label: "Servicios" },
+  { href: "#experiencia", label: "Experiencia" },
+  { href: "#clase-a", label: "Clase A" },
+  { href: "#proceso", label: "Cómo trabajamos" },
+  { href: "#cobertura", label: "Cobertura" },
+];
+
+const wa = waLink();
 
 export default function Header() {
-  const wa = waLink();
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const solid = scrolled || open;
 
   return (
-    <header className="header">
-      <div className="wrap header-in">
-        <a href="#" className="logo" aria-label="Inicio">
-          <span className="logo-mark">
-            <span>LA</span>
-          </span>
-          <span className="logo-text">
-            <span className="logo-name">{site.brand}</span>
-            <span className="logo-sub">{site.brandSuffix}</span>
-          </span>
-        </a>
+    <>
+      <header
+        className={`header ${solid ? "header-solid" : "header-top"}`}
+        data-open={open}
+      >
+        <div className="wrap header-in">
+          <Logo />
 
-        <nav className="nav" aria-label="Navegación principal">
-          <a href="#servicios">Servicios</a>
-          <a href="#experiencia">Experiencia</a>
-          <a href="#proceso">Cómo trabajamos</a>
-          <a href="#agendar">Contacto</a>
-        </nav>
+          <nav className="nav" aria-label="Navegación principal">
+            {links.map((l) => (
+              <a key={l.href} href={l.href}>
+                {l.label}
+              </a>
+            ))}
+          </nav>
 
-        <div className="header-cta">
+          <div className="header-cta">
+            <a className="header-phone" href={telHref}>
+              {site.phone}
+            </a>
+            <a className="btn btn-primary btn-sm" href="#agendar">
+              Cotizar
+            </a>
+            <button
+              className="menu-btn"
+              type="button"
+              aria-expanded={open}
+              aria-label={open ? "Cerrar menú" : "Abrir menú"}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+                {open ? (
+                  <path
+                    d="M2 2l16 10M18 2L2 12"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                ) : (
+                  <path
+                    d="M0 1h20M0 7h20M0 13h20"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {open ? (
+        <div className="mobile-menu">
+          {links.map((l) => (
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+              {l.label}
+            </a>
+          ))}
+          <a href={telHref} onClick={() => setOpen(false)}>
+            Llamar {site.phone}
+          </a>
           {wa ? (
             <a
-              className="btn btn-outline btn-sm"
+              className="btn btn-wa"
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
             >
-              WhatsApp
+              Escribir por WhatsApp
             </a>
           ) : null}
-          <a className="btn btn-primary btn-sm" href="#agendar">
+          <a
+            className="btn btn-primary"
+            href="#agendar"
+            onClick={() => setOpen(false)}
+          >
             Agendar visita técnica
           </a>
         </div>
-      </div>
-    </header>
+      ) : null}
+    </>
   );
 }

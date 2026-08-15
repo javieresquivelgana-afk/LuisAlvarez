@@ -1,9 +1,11 @@
+import { site } from "@/site.config";
+
 const Check = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
     <path
       d="M2 8.5L6 12.5L14 3.5"
       stroke="currentColor"
-      strokeWidth="2.2"
+      strokeWidth="2.4"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
@@ -11,11 +13,11 @@ const Check = () => (
 );
 
 const items = [
-  "Instalador eléctrico Clase A",
-  "Experiencia en proyectos comerciales",
+  site.credential,
+  "Declaración de instalaciones ante la SEC",
   "Baja y media tensión",
-  "Empresas, edificios y locales",
-  "Atención técnica profesional",
+  "Empresas, edificios, locales y faenas",
+  "Un solo responsable técnico por obra",
 ];
 
 export default function TrustBar() {

@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { site, waLink } from "@/site.config";
+import { site, waLink, telHref, mailHref } from "@/site.config";
+
+const Dot = () => (
+  <svg width="9" height="9" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true">
+    <circle cx="4" cy="4" r="4" />
+  </svg>
+);
 
 const Check = () => (
   <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
@@ -63,7 +69,7 @@ export default function AgendaForm() {
           <span className="kicker">Agenda tu visita</span>
           <h2 className="section-title">Solicita una visita técnica</h2>
           <p className="section-lead">
-            Cuéntanos qué necesitas y coordinaremos una evaluación en terreno
+            Cuéntanos qué necesitas y coordinamos una evaluación en terreno
             para tu proyecto o instalación.
           </p>
           <ul>
@@ -80,6 +86,40 @@ export default function AgendaForm() {
               Cotización clara, con alcance y plazos definidos.
             </li>
           </ul>
+
+          <div className="contact-block">
+            <div className="meta-row">
+              <Dot />
+              <span>
+                <b>Directo con {site.owner.split(" ")[0]}</b>
+                <a href={telHref}>{site.phone}</a>
+              </span>
+            </div>
+            <div className="meta-row">
+              <Dot />
+              <span>
+                <b>Correo</b>
+                <a href={mailHref}>{site.email}</a>
+              </span>
+            </div>
+            <div className="meta-row">
+              <Dot />
+              <span>
+                <b>Taller / oficina</b>
+                {site.address.street}, {site.address.city}
+              </span>
+            </div>
+            {wa ? (
+              <a
+                className="btn btn-wa"
+                href={wa}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Escribir por WhatsApp
+              </a>
+            ) : null}
+          </div>
         </div>
 
         <form className="form-card" onSubmit={onSubmit}>

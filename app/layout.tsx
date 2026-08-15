@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Source_Sans_3 } from "next/font/google";
-import { site } from "@/site.config";
+import { site, fullAddress } from "@/site.config";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -17,30 +17,41 @@ const sourceSans = Source_Sans_3({
   display: "swap",
 });
 
+const title = `${site.brand} ${site.brandSuffix} — ${site.credential} en ${site.address.city}`;
+const description = `${site.legalName}: ingeniería eléctrica y electrónica para empresas, locales comerciales, edificios y faenas. Redes de baja y media tensión, obras de fuerza, empalmes, mantenimiento y generación fotovoltaica. ${site.credential}. ${fullAddress}.`;
+
 export const metadata: Metadata = {
-  title: `${site.brand} — ${site.brandSuffix} | Instalador Eléctrico Clase A`,
-  description:
-    "Servicios de ingeniería eléctrica para empresas, locales comerciales y edificios: redes de baja y media tensión, obras de fuerza, mantenimiento, empalmes y proyectos fotovoltaicos. Agenda una visita técnica.",
+  metadataBase: new URL("https://luis-alvarez.vercel.app"),
+  title,
+  description,
+  applicationName: site.legalName,
+  authors: [{ name: site.owner }],
   keywords: [
     "ingeniería eléctrica",
     "instalador eléctrico clase A",
+    "electricista San Antonio",
     "empalmes eléctricos",
+    "media tensión",
     "mantenimiento eléctrico",
     "paneles fotovoltaicos",
-    "proyectos eléctricos",
-    "Chile",
+    "declaración SEC TE1",
+    "Región de Valparaíso",
   ],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: `${site.brand} — ${site.brandSuffix}`,
-    description:
-      "Ingeniería eléctrica profesional para empresas, locales comerciales y proyectos. Instalador eléctrico Clase A.",
+    title,
+    description,
+    url: "/",
+    siteName: site.legalName,
     locale: "es_CL",
     type: "website",
   },
+  twitter: { card: "summary_large_image", title, description },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#13304e",
+  themeColor: "#10151f",
 };
 
 export default function RootLayout({

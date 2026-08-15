@@ -1,67 +1,86 @@
-import Image from "next/image";
+import LazyVideo from "@/components/LazyVideo";
 import { site } from "@/site.config";
 
 export default function Experience() {
   return (
-    <section className="exp" id="experiencia">
-      <div className="wrap exp-in">
-        <div>
-          <span className="kicker">Experiencia</span>
-          <h2 className="section-title">
-            Trayectoria en proyectos eléctricos comerciales
-          </h2>
-          <p className="section-lead">
-            Proyectos eléctricos para empresas, edificios y locales
-            comerciales: habilitaciones completas, redes, mantención y obras
-            de fuerza para operaciones que no pueden detenerse.
-          </p>
+    <section className="section" id="experiencia">
+      <div className="wrap">
+        <span className="kicker">Experiencia</span>
+        <h2 className="section-title">
+          Proyectos ejecutados para operaciones que no pueden parar
+        </h2>
+        <p className="section-lead">
+          Locales comerciales con fecha de apertura, cadenas con estándar
+          propio, empresas de servicios y centros de operación. Cada frente
+          tiene sus tiempos, sus exigencias de seguridad y su forma de
+          recepcionar la obra.
+        </p>
 
-          <div className="exp-photo">
-            <Image
-              src="/img/planos.jpg"
-              alt="Planos de un proyecto eléctrico sobre mesa de trabajo"
-              width={1042}
-              height={695}
-              sizes="(max-width: 880px) 100vw, 42vw"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          </div>
+        <div className="sectors">
+          {site.sectors.map((s, i) => (
+            <article className="sector" key={s.name}>
+              <span className="sector-num">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3>{s.name}</h3>
+              <p>{s.desc}</p>
+            </article>
+          ))}
         </div>
 
-        <div>
-          {site.showClientNames ? (
-            <>
-              <div className="clients-grid">
-                {site.clients.map((c) => (
-                  <div className="client" key={c}>
-                    {c}
-                  </div>
-                ))}
-                <div className="client">Y otros clientes comerciales</div>
-              </div>
-              <p className="exp-note">
-                Proyectos ejecutados de forma directa o como parte de equipos
-                de obra.
-              </p>
-            </>
-          ) : (
-            <>
-              <ul className="sectors">
-                {site.sectors.map((s) => (
-                  <li className="sector" key={s.name}>
-                    <h3>{s.name}</h3>
-                    <p>{s.desc}</p>
-                  </li>
-                ))}
-              </ul>
-              <p className="exp-note">
-                Proyectos ejecutados de forma directa o como parte de equipos
-                de obra.
-              </p>
-            </>
-          )}
+        {site.showClientNames ? (
+          <div className="client-chips">
+            {site.clients.map((c) => (
+              <span key={c}>{c}</span>
+            ))}
+          </div>
+        ) : null}
+
+        <div className="split" style={{ marginTop: "clamp(40px, 6vw, 72px)" }}>
+          <div className="split-media">
+            <LazyVideo name="obra" />
+            <span className="media-tag">Trabajo en faena</span>
+          </div>
+          <div>
+            <span className="kicker">En terreno</span>
+            <h2 className="section-title">
+              La obra se resuelve donde está el problema
+            </h2>
+            <p className="section-lead">
+              Toda cotización parte con una visita técnica: estado real de la
+              instalación, potencia disponible, condiciones del lugar y
+              restricciones de la operación. Recién ahí se define alcance,
+              materiales y plazo.
+            </p>
+            <ul className="bullets">
+              <li>
+                <Check />
+                Levantamiento en terreno antes de comprometer alcance.
+              </li>
+              <li>
+                <Check />
+                Coordinación con administración, obra o arriendo del local.
+              </li>
+              <li>
+                <Check />
+                Trabajos programados para no detener la operación.
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+const Check = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path
+      d="M2 8.5L6 12.5L14 3.5"
+      stroke="currentColor"
+      strokeWidth="2.3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);

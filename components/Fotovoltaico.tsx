@@ -1,59 +1,60 @@
-import Image from "next/image";
+import LazyVideo from "@/components/LazyVideo";
 
-const points = [
-  {
-    title: "Evaluación previa",
-    desc: "Revisamos consumo, techumbre o terreno disponible y capacidad del empalme antes de proponer un sistema.",
-  },
-  {
-    title: "Instalación completa",
-    desc: "Montaje de paneles, inversor, protecciones y conexión al tablero, ejecutado por instalador Clase A.",
-  },
-  {
-    title: "Integración con tu instalación",
-    desc: "El sistema se conecta a la instalación existente, normalizando lo que sea necesario para que opere seguro.",
-  },
-];
+const Check = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path
+      d="M2 8.5L6 12.5L14 3.5"
+      stroke="currentColor"
+      strokeWidth="2.3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 export default function Fotovoltaico() {
   return (
-    <section className="section fv" id="fotovoltaico">
-      <div className="wrap fv-in">
-        <div>
-          <span className="kicker">Generación fotovoltaica</span>
-          <h2 className="section-title">
-            Paneles solares instalados por quien también hace la red
-          </h2>
-          <p className="section-lead">
-            Un sistema fotovoltaico rinde según cómo esté conectado al resto
-            de la instalación. Aquí el proyecto eléctrico y la instalación
-            solar los ejecuta el mismo responsable técnico, sin coordinar dos
-            contratistas distintos.
-          </p>
-
-          <ul className="fv-points">
-            {points.map((p) => (
-              <li key={p.title}>
-                <h3>{p.title}</h3>
-                <p>{p.desc}</p>
-              </li>
-            ))}
-          </ul>
-
-          <a className="btn btn-primary" href="#agendar">
-            Evaluar un proyecto fotovoltaico
-          </a>
+    <section className="section" id="fotovoltaico">
+      <div className="wrap split">
+        <div className="split-media">
+          <LazyVideo name="solar-campo" />
+          <span className="media-tag">Generación fotovoltaica</span>
         </div>
 
-        <div className="fv-photo">
-          <Image
-            src="/img/fotovoltaico.jpg"
-            alt="Paneles solares fotovoltaicos instalados"
-            width={1042}
-            height={695}
-            sizes="(max-width: 880px) 100vw, 42vw"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
+        <div>
+          <span className="kicker">Energía propia</span>
+          <h2 className="section-title">
+            Paneles solares instalados por quien también hace la eléctrica
+          </h2>
+          <p className="section-lead">
+            La instalación fotovoltaica se conecta a un tablero, un empalme y
+            una instalación existente. Cuando el mismo instalador Clase A ve
+            los dos lados, el sistema queda dimensionado con la realidad
+            eléctrica del lugar y no con una planilla genérica.
+          </p>
+
+          <ul className="bullets">
+            <li>
+              <Check />
+              Evaluación previa: consumo, techumbre o terreno y capacidad del
+              empalme.
+            </li>
+            <li>
+              <Check />
+              Montaje completo: paneles, inversor, protecciones y conexión al
+              tablero.
+            </li>
+            <li>
+              <Check />
+              Instalación ejecutada para quedar en regla y ser declarada.
+            </li>
+          </ul>
+
+          <div className="hero-actions" style={{ margin: "28px 0 0" }}>
+            <a className="btn btn-primary" href="#agendar">
+              Evaluar mi proyecto solar
+            </a>
+          </div>
         </div>
       </div>
     </section>

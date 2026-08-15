@@ -1,97 +1,69 @@
-# Luis Álvarez — Ingeniería Eléctrica
+# A/Z Electricidad & Construcción Ltda. — sitio web
 
-Landing page profesional de servicios de electricidad e ingeniería eléctrica
-(instalador eléctrico Clase A). Next.js App Router, lista para desplegar en
-Vercel.
+Sitio comercial de **A/Z Electricidad & Construcción Ltda.** (Luis Ricardo
+Álvarez Chávez), instalador eléctrico Clase A en San Antonio, Región de
+Valparaíso.
 
-## ✏️ Editar contenidos
+- Producción: https://luis-alvarez.vercel.app
+- Stack: Next.js 15 (App Router) + React 19 + TypeScript, sin dependencias de UI.
 
-**Todo el contenido editable vive en [`site.config.ts`](./site.config.ts):**
+## Estructura
 
-| Qué editar | Campo |
-| --- | --- |
-| Teléfono | `phone` |
-| Correo | `email` |
-| WhatsApp (formato `569XXXXXXXX`, sin `+`) | `whatsapp` |
-| Mensaje precargado de WhatsApp | `whatsappMessage` |
-| Zonas de atención | `zones` |
-| N° de licencia SEC | `claseA.licencia` |
-| Mostrar nombres de clientes (decisión comercial) | `showClientNames` |
-| Sectores atendidos (alternativa sobria a las marcas) | `sectors` |
-| Servicios (nombre y descripción de cada tarjeta) | `services` |
+```
+app/
+  page.tsx             Composición de la landing + JSON-LD (Electrician + FAQPage)
+  layout.tsx           Metadata, fuentes (Archivo / Source Sans 3)
+  globals.css          Sistema visual completo (grafito + azul acero de la tarjeta)
+  opengraph-image.tsx  Imagen de previsualización generada con next/og
+  sitemap.ts robots.ts SEO técnico
+  api/agenda/route.ts  Recepción del formulario de visita técnica
+components/            Una sección por archivo
+site.config.ts         ÚNICA fuente de datos del negocio
+public/video/          Clips del hero y de las secciones (mp4, 720p + variante -sm)
+public/img/            Pósters de cada clip + fotos
+```
 
-### 🟡 Datos pendientes: el sitio no inventa nada
+## Editar contenido
 
-Los campos de contacto vacíos (`""`) se consideran **pendientes**. El sitio
-**no** muestra un número o correo inventado: en su lugar despliega el
-distintivo `POR CONFIRMAR` y **desactiva con elegancia** los botones de
-WhatsApp (header, CTA final, botón flotante), dejando el formulario como
-única vía de contacto.
+Casi todo se edita en **`site.config.ts`**: contacto, dirección, zonas,
+servicios, sectores y preguntas frecuentes. Los componentes no llevan datos
+del negocio escritos a mano.
 
-Al escribir el dato real en `site.config.ts`, todo se activa solo — no hay
-que tocar ningún componente.
+Pendientes marcados en ese archivo:
 
-**Pendientes al 2026-08-10:** `phone`, `email`, `whatsapp`, `zones` y
-`claseA.licencia`.
+1. `claseA.licencia` — N° de licencia SEC (hoy se muestra "POR CONFIRMAR").
+2. `zones` — cobertura declarada; hoy está redactada desde la casa matriz.
+3. `showClientNames` — pasa a `true` solo si el cliente autoriza publicar
+   nombres de terceros (Dunkin' Donuts, San Camilo, etc.).
 
-### ⚖️ Sobre nombrar clientes (`showClientNames`)
+## Video
 
-Luis Álvarez indicó como clientes suyos a Dunkin' Donuts, San Camilo, Salfa
-Gestión, Macsa y Eros/PedidosYa. Son reales, pero **haber trabajado para una
-marca no equivale a tener permiso para usar su nombre** en material
-promocional propio; las cadenas grandes suelen exigirlo por escrito.
+El hero es una secuencia de tres clips a pantalla completa (tableros → líneas
+MT → fotovoltaico) que se cruzan por opacidad cada 8 s. Las secciones usan
+`components/LazyVideo.tsx`: el clip solo se descarga cuando entra en pantalla
+y nunca se carga si el visitante pidió `prefers-reduced-motion`.
 
-Por eso el sitio arranca en `showClientNames: false` y muestra la
-formulación sobria por sectores (`sectors`), que comunica el mismo peso
-comercial sin exponer al cliente. Los nombres quedan escritos en
-`clients` — para activarlos basta cambiar el flag a `true`, y se renderizan
-como texto, nunca con logos ajenos.
+Cada clip existe en dos tamaños: `nombre.mp4` (1280×720) y `nombre-sm.mp4`
+(640×360, para móvil). La resolución se elige en el cliente con `matchMedia`.
 
-## 🚀 Desarrollo local
+Metraje de stock de [Mixkit](https://mixkit.co) (licencia gratuita, uso
+comercial sin atribución), recortado y recodificado con ffmpeg.
+
+## Formulario
+
+`POST /api/agenda` acepta el formulario y, si están definidas las variables de
+entorno, lo reenvía:
+
+- `CONTACT_WEBHOOK_URL` — webhook (Google Apps Script / CRM).
+- `RESEND_API_KEY` + `CONTACT_EMAIL` — correo vía Resend.
+
+Sin variables configuradas, la solicitud queda en los logs de Vercel y el
+visitante recibe confirmación con alternativa de WhatsApp.
+
+## Desarrollo
 
 ```bash
 npm install
-npm run dev   # http://localhost:3000
-```
-
-## ☁️ Desplegar en Vercel
-
-```bash
-vercel        # preview
-vercel --prod # producción
-```
-
-Luego conectar el dominio propio desde el dashboard de Vercel
-(Settings → Domains).
-
-## 📬 Formulario de visita técnica
-
-El formulario envía a `app/api/agenda/route.ts`. Sin configuración adicional,
-cada solicitud queda registrada en los **logs de Vercel**. Para recibirlas:
-
-### Opción A — Correo (Resend)
-
-1. Crear cuenta gratis en [resend.com](https://resend.com) y obtener API key.
-2. En Vercel → Settings → Environment Variables agregar:
-   - `RESEND_API_KEY` = la API key
-   - `CONTACT_EMAIL` = correo donde recibir las solicitudes
-
-### Opción B — Google Sheets / CRM (webhook)
-
-1. Crear un Google Apps Script que reciba POST JSON y escriba en una hoja.
-2. Agregar en Vercel: `CONTACT_WEBHOOK_URL` = URL del script.
-
-Ambas opciones pueden activarse a la vez. El payload incluye: nombre,
-teléfono, correo, empresa, comuna, dirección, servicio, fecha, horario,
-descripción y nombres de fotos adjuntas.
-
-## 🗂 Estructura
-
-```
-site.config.ts        ← contenido editable (contacto, clientes, servicios)
-app/layout.tsx        ← fuentes y metadatos SEO
-app/page.tsx          ← orden de las secciones
-app/globals.css       ← sistema visual completo
-app/api/agenda/       ← endpoint del formulario
-components/           ← una sección por archivo
+npm run dev     # http://localhost:3000
+npm run build   # verificación de tipos + build de producción
 ```

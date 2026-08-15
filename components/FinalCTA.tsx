@@ -1,32 +1,39 @@
-import { waLink } from "@/site.config";
+import LazyVideo from "@/components/LazyVideo";
+import { site, waLink, telHref } from "@/site.config";
 
 export default function FinalCTA() {
-  const wa = waLink();
+  const wa = waLink(
+    "Hola, necesito cotizar un trabajo eléctrico. ¿Podemos coordinar una visita técnica?",
+  );
 
   return (
     <section className="final">
-      <div className="wrap">
-        <span className="kicker">Próximo paso</span>
-        <h2>Agenda una visita técnica con un instalador eléctrico Clase A</h2>
+      <LazyVideo name="hero-lineas" />
+      <div className="wrap final-in">
+        <span className="kicker">{site.credential}</span>
+        <h2>¿Tienes un proyecto eléctrico entre manos?</h2>
         <p>
-          Cuéntanos qué necesitas y coordinaremos una evaluación para tu
-          proyecto eléctrico, mantención, empalme, red, sistema de fuerza o
-          instalación fotovoltaica.
+          Cuéntanos qué necesitas y coordinamos la visita técnica. Cotización
+          con alcance definido, ejecutada y declarada por instalador Clase A.
         </p>
-        <div className="final-actions">
-          <a className="btn btn-amber" href="#agendar">
+        <div className="hero-actions">
+          <a className="btn btn-primary btn-lg" href="#agendar">
             Agendar visita técnica
           </a>
           {wa ? (
             <a
-              className="btn btn-wa"
+              className="btn btn-ghost btn-lg"
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Contactar por WhatsApp
+              WhatsApp {site.phone}
             </a>
-          ) : null}
+          ) : (
+            <a className="btn btn-ghost btn-lg" href={telHref}>
+              Llamar {site.phone}
+            </a>
+          )}
         </div>
       </div>
     </section>
