@@ -38,14 +38,30 @@ export default function Hero() {
     setSuffix(window.matchMedia("(max-width: 760px)").matches ? "-sm" : "");
   }, []);
 
-  const show = useCallback((i: number) => {
-    setIndex(i);
-    const v = videos.current[i];
-    if (v) {
-      v.currentTime = 0;
-      void v.play().catch(() => {});
-    }
-  }, []);
+  /**
+   * Los dos clips corren siempre; el cambio es solo de opacidad.
+   *
+   * Antes se rebobinaba el clip entrante (`currentTime = 0`) y se le
+   * pedía reproducir en ese instante: con el video recién cargándose,
+   * el navegador mostraba el póster congelado hasta tener buffer. Se
+   * veía trabado justo en el cruce. Ahora ambos arrancan al montar y
+   * nunca se detienen, así el fundido siempre encuentra imagen viva.
+   */
+  useEffect(() => {
+    if (suffix === null) return;
+
+    const play = (v: HTMLVideoElement | null) => {
+      if (v) void v.play().catch(() => {});
+    };
+
+    videos.current.forEach(play);
+
+    // Reintento tras la carga: iOS ignora play() antes de tener datos.
+    const retry = window.setTimeout(() => videos.current.forEach(play), 1200);
+    return () => window.clearTimeout(retry);
+  }, [suffix]);
+
+  const show = useCallback((i: number) => setIndex(i), []);
 
   useEffect(() => {
     const reduced = window.matchMedia(
@@ -53,17 +69,10 @@ export default function Hero() {
     ).matches;
     if (reduced) return;
 
-    const id = window.setInterval(() => {
-      setIndex((i) => {
-        const next = (i + 1) % clips.length;
-        const v = videos.current[next];
-        if (v) {
-          v.currentTime = 0;
-          void v.play().catch(() => {});
-        }
-        return next;
-      });
-    }, CLIP_MS);
+    const id = window.setInterval(
+      () => setIndex((i) => (i + 1) % clips.length),
+      CLIP_MS,
+    );
 
     return () => window.clearInterval(id);
   }, []);
@@ -80,11 +89,11 @@ export default function Hero() {
             className={i === index ? "is-active" : ""}
             poster={`/img/${c.src}.jpg`}
             src={suffix === null ? undefined : `/video/${c.src}${suffix}.mp4`}
-            autoPlay={i === 0}
+            autoPlay
             muted
             loop
             playsInline
-            preload={i === 0 ? "auto" : "none"}
+            preload="auto"
           />
         ))}
       </div>
