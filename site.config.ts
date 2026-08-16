@@ -344,7 +344,43 @@ export const site = {
    * que se muestra. Si el arreglo queda vacío, la sección no se
    * renderiza — el sitio no muestra un hueco.
    */
-  obras: [] as { archivo: string; alt: string; pie: string }[],
+  obras: [
+    {
+      archivo: "trabajo-media-tension.webp",
+      alt: "Técnico con arnés trabajando en un poste de media tensión, junto a un transformador",
+      pie: "Trabajo en altura sobre media tensión, con arnés y procedimiento de seguridad.",
+    },
+    {
+      archivo: "tablero-fuerza-armado.webp",
+      alt: "Tablero de fuerza con protecciones termomagnéticas montadas sobre riel DIN",
+      pie: "Tablero de fuerza armado en taller: protecciones, riel DIN y canaletas identificadas.",
+    },
+    {
+      archivo: "tablero-general-terminado.webp",
+      alt: "Tablero general terminado con múltiples circuitos y cableado ordenado",
+      pie: "Tablero general terminado, con cada circuito rotulado y probado antes de la entrega.",
+    },
+    {
+      archivo: "empalme-cobre.webp",
+      alt: "Cañería de cobre para empalme eléctrico junto a manguía corrugada",
+      pie: "Preparación de empalme: cañería de cobre y conductor listos para la conexión.",
+    },
+    {
+      archivo: "puesta-a-tierra.webp",
+      alt: "Pozo de puesta a tierra con conductor de cobre embebido en concreto",
+      pie: "Puesta a tierra vaciada en terreno: la base de la protección de toda la instalación.",
+    },
+    {
+      archivo: "gabinete-canaleta.webp",
+      alt: "Gabinete eléctrico con canaletas ranuradas y riel DIN listo para montaje",
+      pie: "Gabinete preparado en taller: canaletas y riel DIN antes de instalar las protecciones.",
+    },
+    {
+      archivo: "gabinete-riel-din.webp",
+      alt: "Estructura de gabinete eléctrico con riel DIN visto en detalle",
+      pie: "Detalle de montaje: riel DIN atornillado y numerado antes de recibir los dispositivos.",
+    },
+  ] as { archivo: string; alt: string; pie: string }[],
 
   /* ── Qué se necesita para cotizar ──────────────────────────
    * Vale para cualquier servicio: se muestra en cada ficha.

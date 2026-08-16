@@ -58,14 +58,14 @@ export default function ClaseA() {
         <div>
           <div className="split-media" style={{ aspectRatio: "5 / 4" }}>
             <Image
-              src="/img/tecnico.jpg"
-              alt="Electricista trabajando en una instalación"
-              width={1042}
-              height={695}
+              src="/img/obras/trabajo-media-tension.webp"
+              alt="Técnico de A/Z con arnés trabajando en un poste de media tensión, junto a un transformador"
+              width={1400}
+              height={1050}
               sizes="(max-width: 880px) 100vw, 46vw"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
-            <span className="media-tag">Ejecución certificada</span>
+            <span className="media-tag">Trabajo propio en media tensión</span>
           </div>
 
           <div className="cred-card" style={{ marginTop: "18px" }}>
