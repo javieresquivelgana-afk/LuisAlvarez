@@ -16,9 +16,7 @@ export default function Experience() {
         <div className="sectors">
           {site.sectors.map((s, i) => (
             <article className="sector" key={s.name}>
-              <span className="sector-num">
-                {String(i + 1).padStart(2, "0")}
-              </span>
+              <span className="sector-num" />
               <h3>{s.name}</h3>
               <p>{s.desc}</p>
             </article>

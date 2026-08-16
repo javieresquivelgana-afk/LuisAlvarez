@@ -62,9 +62,7 @@ export default function ServiciosPage() {
           <div className="sectors sectors-3">
             {criterios.map((c, i) => (
               <article className="sector" key={c.t}>
-                <span className="sector-num">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <span className="sector-num" />
                 <h3>{c.t}</h3>
                 <p>{c.d}</p>
               </article>

@@ -30,7 +30,7 @@ export function ServicesGrid({
     <div className="services-grid">
       {items.map((s) => (
         <a className="service-card" key={s.id} href={`/servicios/${s.id}`}>
-          <span className="service-code">{s.code}</span>
+          <span className="service-code" />
           <h3>
             {s.name}
             <Arrow />

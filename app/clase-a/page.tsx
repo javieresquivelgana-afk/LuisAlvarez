@@ -56,9 +56,7 @@ export default function ClaseAPage() {
           <div className="sectors">
             {puntos.map((p, i) => (
               <article className="sector" key={p.t}>
-                <span className="sector-num">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <span className="sector-num" />
                 <h3>{p.t}</h3>
                 <p>{p.d}</p>
               </article>

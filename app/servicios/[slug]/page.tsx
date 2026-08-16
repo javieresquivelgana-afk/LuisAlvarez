@@ -124,9 +124,7 @@ export default async function ServicioPage({ params }: Params) {
           <div className="sectors sectors-3">
             {service.cuando.map((c, i) => (
               <article className="sector" key={c}>
-                <span className="sector-num">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <span className="sector-num" />
                 <p>{c}</p>
               </article>
             ))}

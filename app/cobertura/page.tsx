@@ -48,9 +48,7 @@ export default function CoberturaPage() {
           <div className="sectors sectors-3">
             {modos.map((m, i) => (
               <article className="sector" key={m.t}>
-                <span className="sector-num">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <span className="sector-num" />
                 <h3>{m.t}</h3>
                 <p>{m.d}</p>
               </article>
