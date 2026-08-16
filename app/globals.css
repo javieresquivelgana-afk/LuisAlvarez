@@ -1880,16 +1880,20 @@ h4 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background: var(--ink);
-    border-top: 1px solid #ffffff1f;
-    padding-bottom: env(safe-area-inset-bottom);
+    border-top: 1px solid #ffffff26;
   }
 
+  /* La zona segura del iPhone la absorbe cada mitad, no el contenedor:
+     si el relleno va arriba, el verde termina antes del borde y queda
+     una franja negra bajo el botón de WhatsApp. */
   .mobile-bar a {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 9px;
+    height: 100%;
     min-height: 56px;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
     font-family: var(--font-s);
     font-weight: 600;
     font-size: 15.5px;
@@ -1901,14 +1905,17 @@ h4 {
     color: #06331a;
   }
 
-  /* El flotante sobraba con la barra abajo */
-  .wa-float {
-    display: none;
+  .mobile-bar-wa svg {
+    color: currentColor;
   }
 
-  /* Que la barra no tape el final del contenido */
+  /* Que la barra no tape el final del contenido, en cualquier página */
+  body {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+  }
+
   .footer {
-    padding-bottom: 88px;
+    padding-bottom: 40px;
   }
 }
 
@@ -1989,6 +1996,14 @@ h4 {
 @media (max-width: 880px) {
   .nav,
   .header-phone {
+    display: none;
+  }
+
+  /* Con la barra fija abajo, el botón flotante sobra — y asomaba por
+     encima de ella como medio círculo. Esta regla tiene que ir después
+     de la definición base de .wa-float: misma especificidad, gana la
+     última, y antes la base la estaba reviviendo. */
+  .wa-float {
     display: none;
   }
 
@@ -2284,15 +2299,6 @@ h4 {
     font-size: 15.5px;
   }
 
-  .wa-float span {
-    display: none;
-  }
-
-  .wa-float {
-    padding: 15px;
-    right: 16px;
-    bottom: 16px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
