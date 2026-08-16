@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import {
   site,
   fullAddress,
@@ -36,6 +39,11 @@ const Ig = () => (
 );
 
 export default function Coverage({ bare = false }: { bare?: boolean }) {
+  /* El visor de OpenStreetMap pesa 770 KB de código ajeno. Se carga
+     solo si el visitante lo pide: hasta entonces se ve el encuadre
+     estático de la zona, que es lo que la mayoría necesita. */
+  const [verMapa, setVerMapa] = useState(false);
+
   /**
    * Mapa de la zona base, servido por OpenStreetMap: no necesita API key
    * ni cookies de terceros, y siempre carga (el embed de Google queda en
@@ -106,12 +114,26 @@ export default function Coverage({ bare = false }: { bare?: boolean }) {
         </div>
 
         <div className="coverage-card">
-          <iframe
-            src={embed}
-            title={`Zona de operación de ${site.legalName}: ${site.address.city} y el litoral`}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          {verMapa ? (
+            <iframe
+              src={embed}
+              title={`Zona de operación de ${site.legalName}: ${site.address.city} y el litoral`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          ) : (
+            <button
+              type="button"
+              className="map-holder"
+              onClick={() => setVerMapa(true)}
+            >
+              <span className="map-zone">
+                <Pin />
+                {site.address.city} · {site.address.region}
+              </span>
+              <span className="map-load">Ver el mapa</span>
+            </button>
+          )}
           <div className="coverage-meta">
             <div className="meta-row">
               <Pin />

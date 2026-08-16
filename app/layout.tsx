@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter_Tight, IBM_Plex_Sans, Public_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { site, fullAddress } from "@/site.config";
 import "./globals.css";
 
@@ -81,7 +82,13 @@ export default function RootLayout({
       lang="es-CL"
       className={`${titleFont.variable} ${subFont.variable} ${bodyFont.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Medición agregada y sin cookies: cuántas visitas llegan y qué
+            páginas leen. Sin esto no hay forma de saber si el sitio
+            convierte. No identifica personas ni requiere banner. */}
+        <Analytics />
+      </body>
     </html>
   );
 }

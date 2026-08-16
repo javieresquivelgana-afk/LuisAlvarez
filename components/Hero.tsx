@@ -33,6 +33,13 @@ export default function Hero() {
   const [index, setIndex] = useState(0);
   const [suffix, setSuffix] = useState<string | null>(null);
   /**
+   * En móvil el segundo clip no se descarga de entrada: son casi dos
+   * megas de datos para alguien que quizá solo quería el teléfono. Se
+   * trae a los ocho segundos, cuando la visita ya demostró interés y
+   * antes de que le toque aparecer.
+   */
+  const [segundoClip, setSegundoClip] = useState(true);
+  /**
    * Safari en modo de bajo consumo bloquea la reproducción automática y
    * dibuja su propio botón de play encima del video. En vez de dejar
    * ese botón (que promete algo que el hero no es), se cambia el video
@@ -42,7 +49,13 @@ export default function Hero() {
   const videos = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
-    setSuffix(window.matchMedia("(max-width: 760px)").matches ? "-sm" : "");
+    const movil = window.matchMedia("(max-width: 760px)").matches;
+    setSuffix(movil ? "-sm" : "");
+    if (!movil) return;
+
+    setSegundoClip(false);
+    const id = window.setTimeout(() => setSegundoClip(true), 8000);
+    return () => window.clearTimeout(id);
   }, []);
 
   /**
@@ -58,7 +71,7 @@ export default function Hero() {
     if (suffix === null) return;
 
     const play = (v: HTMLVideoElement | null) => {
-      if (!v) return;
+      if (!v || !v.src) return;
       v.play().catch(() => setBlocked(true));
     };
 
@@ -71,15 +84,15 @@ export default function Hero() {
        consumo Safari puede resolver la promesa y dejar el video igual
        de quieto. Se comprueba el resultado, que es lo que se ve. */
     const verify = window.setTimeout(() => {
-      const stuck = videos.current.some((v) => v && v.paused);
-      if (stuck) setBlocked(true);
+      const primero = videos.current[0];
+      if (primero && primero.paused) setBlocked(true);
     }, 3000);
 
     return () => {
       window.clearTimeout(retry);
       window.clearTimeout(verify);
     };
-  }, [suffix]);
+  }, [suffix, segundoClip]);
 
   const show = useCallback((i: number) => setIndex(i), []);
 
@@ -105,7 +118,7 @@ export default function Hero() {
               <img
                 key={c.src}
                 className={i === index ? "is-active" : ""}
-                src={`/img/${c.src}.jpg`}
+                src={`/img/${c.src}.webp`}
                 alt=""
               />
             ))
@@ -118,8 +131,12 @@ export default function Hero() {
               videos.current[i] = el;
             }}
             className={i === index ? "is-active" : ""}
-            poster={`/img/${c.src}.jpg`}
-            src={suffix === null ? undefined : `/video/${c.src}${suffix}.mp4`}
+            poster={`/img/${c.src}.webp`}
+            src={
+              suffix === null || (i > 0 && !segundoClip)
+                ? undefined
+                : `/video/${c.src}${suffix}.mp4`
+            }
             autoPlay
             muted
             loop

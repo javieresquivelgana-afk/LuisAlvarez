@@ -335,6 +335,17 @@ export const site = {
     },
   ],
 
+  /* ── Obras propias ─────────────────────────────────────────
+   * Fotos de trabajos reales de A/Z. Reemplazan al metraje de banco:
+   * una foto de una faena propia vale más que cualquier stock.
+   *
+   * Para sumar una: dejar el archivo en `public/img/obras/` y agregar
+   * aquí su nombre, su descripción para lectores de pantalla y el pie
+   * que se muestra. Si el arreglo queda vacío, la sección no se
+   * renderiza — el sitio no muestra un hueco.
+   */
+  obras: [] as { archivo: string; alt: string; pie: string }[],
+
   /* ── Qué se necesita para cotizar ──────────────────────────
    * Vale para cualquier servicio: se muestra en cada ficha.
    * Nada de esto es obligatorio — si no está, se levanta en terreno.

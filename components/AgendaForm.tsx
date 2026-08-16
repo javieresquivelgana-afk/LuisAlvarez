@@ -230,20 +230,37 @@ export default function AgendaForm() {
                 placeholder="Describe brevemente qué necesitas: tipo de instalación, problema actual, tamaño del proyecto, etc."
               />
             </div>
-            <div className="field field-full">
-              <label htmlFor="fotos">Adjuntar fotos (opcional)</label>
+            {/* Campo trampa: invisible para una persona, tentador para
+                un robot. Si llega con contenido, el servidor descarta. */}
+            <div className="hp" aria-hidden="true">
+              <label htmlFor="empresa_web">No completar</label>
               <input
-                id="fotos"
-                name="fotos"
-                type="file"
-                accept="image/*"
-                multiple
+                id="empresa_web"
+                name="empresa_web"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
               />
             </div>
           </div>
 
           <p className="form-note">
             Te contactamos para confirmar día y hora de la visita.
+            {wa ? (
+              <>
+                {" "}
+                ¿Tienes fotos del tablero o del empalme?{" "}
+                <a href={wa} target="_blank" rel="noopener noreferrer">
+                  Mándalas por WhatsApp
+                </a>{" "}
+                y adelantamos el diagnóstico.
+              </>
+            ) : null}
+          </p>
+
+          <p className="form-legal">
+            Al enviar aceptas que usemos estos datos para responder tu
+            solicitud. Nada más. <a href="/privacidad">Cómo tratamos tus datos</a>.
           </p>
 
           <button

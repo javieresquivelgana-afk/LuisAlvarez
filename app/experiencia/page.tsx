@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import SitePage, { BreadcrumbLd } from "@/components/SitePage";
 import Experience from "@/components/Experience";
 import VideoBand from "@/components/VideoBand";
+import Obras from "@/components/Obras";
 import { site } from "@/site.config";
 
 const ejecucion = [
@@ -44,6 +45,7 @@ export default function ExperienciaPage() {
         media="obra"
         crumbs={crumbs}
       />
+      <Obras />
       <Experience />
 
       <section className="section section-soft">

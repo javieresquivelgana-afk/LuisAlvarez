@@ -112,6 +112,9 @@ export default function Footer() {
               <li>
                 <a href="/preguntas">Preguntas frecuentes</a>
               </li>
+              <li>
+                <a href="/privacidad">Tratamiento de datos</a>
+              </li>
             </ul>
           </div>
         </div>

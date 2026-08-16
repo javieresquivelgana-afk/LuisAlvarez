@@ -8,6 +8,7 @@ import Explore from "@/components/Explore";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import MobileBar from "@/components/MobileBar";
 
 /**
  * Portada. Deliberadamente corta: qué se hace, con qué respaldo y cómo
@@ -51,8 +52,11 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <a className="skip-link" href="#contenido">
+        Saltar al contenido
+      </a>
       <Header />
-      <main>
+      <main id="contenido">
         <Hero />
         <TrustBar />
         <Services />
@@ -62,6 +66,7 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <MobileBar />
       <span className="sr-only">{fullAddress}</span>
     </>
   );

@@ -15,6 +15,34 @@ import { NextResponse } from "next/server";
 
 const REQUIRED = ["nombre", "telefono", "comuna", "servicio"] as const;
 
+/** Formato de correo: no valida que exista, sí que sea un correo. */
+const EMAIL = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+
+/**
+ * Límite simple por IP: seis solicitudes por hora. Vive en memoria del
+ * proceso, así que un reinicio lo borra — suficiente para frenar el
+ * envío automático, sin agregar dependencias ni base de datos.
+ */
+const HORA = 60 * 60 * 1000;
+const MAX_POR_HORA = 6;
+const envios = new Map<string, number[]>();
+
+function excedeLimite(ip: string): boolean {
+  const ahora = Date.now();
+  const previos = (envios.get(ip) ?? []).filter((t) => ahora - t < HORA);
+  previos.push(ahora);
+  envios.set(ip, previos);
+
+  // Limpieza oportunista para que el mapa no crezca sin control
+  if (envios.size > 500) {
+    for (const [k, v] of envios) {
+      if (v.every((t) => ahora - t > HORA)) envios.delete(k);
+    }
+  }
+
+  return previos.length > MAX_POR_HORA;
+}
+
 export async function POST(req: Request) {
   let form: FormData;
   try {
@@ -28,6 +56,27 @@ export async function POST(req: Request) {
 
   const get = (k: string) => String(form.get(k) ?? "").trim();
 
+  /* Campo trampa: está oculto en el formulario, así que una persona
+     nunca lo llena. Los robots sí. Se responde ok para no darles pista
+     de que fueron detectados, pero no se procesa nada. */
+  if (get("empresa_web")) {
+    return NextResponse.json({ ok: true });
+  }
+
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "desconocida";
+
+  if (excedeLimite(ip)) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          "Recibimos varias solicitudes desde esta conexión. Escríbenos por WhatsApp y te respondemos al tiro.",
+      },
+      { status: 429 },
+    );
+  }
+
   const data = {
     nombre: get("nombre"),
     telefono: get("telefono"),
@@ -39,12 +88,6 @@ export async function POST(req: Request) {
     fecha: get("fecha"),
     horario: get("horario"),
     descripcion: get("descripcion"),
-    // Las fotos adjuntas se registran por nombre; para almacenarlas,
-    // conectar Vercel Blob u otro storage.
-    fotos: form
-      .getAll("fotos")
-      .filter((f): f is File => f instanceof File && f.size > 0)
-      .map((f) => f.name),
     recibido: new Date().toISOString(),
     origen: "landing",
   };
@@ -53,6 +96,20 @@ export async function POST(req: Request) {
   if (faltantes.length > 0) {
     return NextResponse.json(
       { ok: false, error: `Faltan campos: ${faltantes.join(", ")}` },
+      { status: 400 },
+    );
+  }
+
+  if (data.correo && !EMAIL.test(data.correo)) {
+    return NextResponse.json(
+      { ok: false, error: "Revisa el correo: falta el @ o el dominio." },
+      { status: 400 },
+    );
+  }
+
+  if (data.telefono.replace(/\D/g, "").length < 8) {
+    return NextResponse.json(
+      { ok: false, error: "Revisa el teléfono: faltan dígitos." },
       { status: 400 },
     );
   }
@@ -101,8 +158,6 @@ export async function POST(req: Request) {
             ``,
             `Descripción:`,
             data.descripcion || "—",
-            ``,
-            `Fotos adjuntas: ${data.fotos.length > 0 ? data.fotos.join(", ") : "ninguna"}`,
           ].join("\n"),
         }),
       });

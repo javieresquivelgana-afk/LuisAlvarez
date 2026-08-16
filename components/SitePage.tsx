@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import MobileBar from "@/components/MobileBar";
 import FinalCTA from "@/components/FinalCTA";
 import PageNav from "@/components/PageNav";
 
@@ -22,14 +23,18 @@ export default function SitePage({
 }) {
   return (
     <>
+      <a className="skip-link" href="#contenido">
+        Saltar al contenido
+      </a>
       <Header />
-      <main>
+      <main id="contenido">
         {children}
         {path ? <PageNav current={path} /> : null}
         {cta ? <FinalCTA /> : null}
       </main>
       <Footer />
       <WhatsAppFloat />
+      <MobileBar />
     </>
   );
 }

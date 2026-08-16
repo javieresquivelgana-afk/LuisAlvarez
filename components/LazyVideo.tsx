@@ -36,16 +36,8 @@ export default function LazyVideo({ name, className, label }: Props) {
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setSrc(`/video/${name}${suffix}.mp4`);
-            el.play().catch(() => setBlocked(true));
-            // Safari puede aceptar play() y dejar el video quieto igual
-            window.setTimeout(() => {
-              if (el.paused) setBlocked(true);
-            }, 3000);
-          } else {
-            el.pause();
-          }
+          if (entry.isIntersecting) setSrc(`/video/${name}${suffix}.mp4`);
+          else el.pause();
         }
       },
       { rootMargin: "200px" },
@@ -55,11 +47,32 @@ export default function LazyVideo({ name, className, label }: Props) {
     return () => io.disconnect();
   }, [name]);
 
+  /**
+   * La carga se dispara acá y no dentro del observador: con
+   * `preload="none"` el navegador ignora la fuente hasta que se le pide
+   * cargar, y pedirlo antes de que React pintara el `src` no hacía
+   * nada. Por eso los encabezados interiores se quedaban en el póster.
+   */
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !src) return;
+
+    el.load();
+    el.play().catch(() => setBlocked(true));
+
+    // Safari puede aceptar play() y dejar el video quieto igual.
+    const check = window.setTimeout(() => {
+      if (el.paused) setBlocked(true);
+    }, 3000);
+
+    return () => window.clearTimeout(check);
+  }, [src]);
+
   if (blocked) {
     return (
       <img
         className={className}
-        src={`/img/${name}.jpg`}
+        src={`/img/${name}.webp`}
         alt={label ?? ""}
         aria-hidden={label ? undefined : true}
       />
@@ -70,7 +83,7 @@ export default function LazyVideo({ name, className, label }: Props) {
     <video
       ref={ref}
       className={className}
-      poster={`/img/${name}.jpg`}
+      poster={`/img/${name}.webp`}
       src={src ?? undefined}
       muted
       loop
