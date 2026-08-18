@@ -287,6 +287,26 @@ export const site = {
         "Se requiere un responsable técnico único frente al mandante.",
       ],
     },
+    {
+      id: "factor-potencia",
+      code: "10",
+      name: "Mejoramiento de factor de potencia",
+      desc: "Corrección del factor de potencia con banco de condensadores, para evitar recargos por energía reactiva y cortes por cargas inductivas.",
+      media: "hero-tablero",
+      intro:
+        "Motores, compresores y equipos de frío consumen energía reactiva además de la que realmente trabaja: eso baja el factor de potencia, genera recargo en la boleta y puede hacer saltar protecciones sin que haya ninguna falla de por medio. Corregirlo es un banco de condensadores dimensionado a la carga real de la instalación.",
+      incluye: [
+        "Medición de cargas y cálculo del factor de potencia de la instalación.",
+        "Dimensionamiento del banco de condensadores según la carga inductiva.",
+        "Gabinete con banco de condensadores, protecciones y sistema de control.",
+        "Puesta en servicio y verificación del factor de potencia corregido.",
+      ],
+      cuando: [
+        "La boleta eléctrica trae recargo o multa por bajo factor de potencia.",
+        "Hay cortes de energía asociados a motores, compresores o equipos de frío.",
+        "La instalación tiene carga inductiva relevante (motores, cámaras de frío, climatización) sin corregir.",
+      ],
+    },
   ],
 
   // ── Preguntas frecuentes ──────────────────────────────────

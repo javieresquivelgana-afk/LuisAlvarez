@@ -155,10 +155,7 @@ export default function Hero() {
           {site.credential} · SEC
         </span>
 
-        <h1>
-          Ingeniería eléctrica <em>de obra grande</em> para empresas y
-          proyectos
-        </h1>
+        <h1>Ingeniería eléctrica para empresas y proyectos</h1>
 
         <p className="hero-sub">
           {site.legalName} — proyectos, redes, empalmes, mantenimiento y

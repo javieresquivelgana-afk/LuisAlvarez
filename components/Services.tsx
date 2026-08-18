@@ -45,7 +45,7 @@ export function ServicesGrid({
 /**
  * Bloque de servicios de la portada. Muestra solo los primeros seis:
  * lo justo para que se entienda el alcance, con la puerta abierta a las
- * nueve fichas completas.
+ * diez fichas completas.
  */
 export default function Services() {
   return (
@@ -55,7 +55,7 @@ export default function Services() {
           <div>
             <span className="kicker">Servicios</span>
             <h2 className="section-title">
-              Nueve frentes, un solo responsable técnico
+              Diez frentes, un solo responsable técnico
             </h2>
             <p className="section-lead">
               Del proyecto de ingeniería a la ejecución, la mantención y la
@@ -63,7 +63,7 @@ export default function Services() {
             </p>
           </div>
           <a className="link-arrow" href="/servicios">
-            Ver los nueve servicios
+            Ver los diez servicios
             <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </a>
         </div>

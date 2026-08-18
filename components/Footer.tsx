@@ -72,7 +72,7 @@ export default function Footer() {
                 </li>
               ))}
               <li>
-                <a href="/servicios">Ver los nueve servicios</a>
+                <a href="/servicios">Ver los diez servicios</a>
               </li>
             </ul>
           </div>

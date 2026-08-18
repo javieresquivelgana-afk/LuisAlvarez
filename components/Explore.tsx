@@ -20,7 +20,7 @@ const destinos = [
   {
     href: "/servicios",
     label: "Servicios",
-    desc: "Las nueve líneas de trabajo, cada una con su ficha.",
+    desc: "Las diez líneas de trabajo, cada una con su ficha.",
   },
   {
     href: "/clase-a",

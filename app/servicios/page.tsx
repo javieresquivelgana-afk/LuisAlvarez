@@ -35,7 +35,7 @@ export default function ServiciosPage() {
       <PageHero
         kicker="Servicios"
         title="Todo lo eléctrico de una obra, bajo una sola licencia"
-        lead="Nueve líneas de trabajo: proyectar, ejecutar, energizar, mantener y dejar la instalación en condiciones de ser declarada."
+        lead="Diez líneas de trabajo: proyectar, ejecutar, energizar, mantener y dejar la instalación en condiciones de ser declarada."
         media="franja-subestacion"
         crumbs={crumbs}
       />
@@ -57,7 +57,7 @@ export default function ServiciosPage() {
         <div className="wrap">
           <span className="kicker">Cómo se trabaja</span>
           <h2 className="section-title">
-            Tres reglas que valen para los nueve servicios
+            Tres reglas que valen para los diez servicios
           </h2>
           <div className="sectors sectors-3">
             {criterios.map((c, i) => (

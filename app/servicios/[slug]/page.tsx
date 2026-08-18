@@ -190,7 +190,7 @@ export default async function ServicioPage({ params }: Params) {
 
           <div className="hero-actions" style={{ marginBottom: 0 }}>
             <a className="link-arrow" href="/servicios">
-              Ver los nueve servicios
+              Ver los diez servicios
               <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>
           </div>
