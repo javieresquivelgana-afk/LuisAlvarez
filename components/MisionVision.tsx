@@ -3,15 +3,15 @@ import { site } from "@/site.config";
 const items = [
   { t: "Misión", d: site.mision },
   { t: "Visión", d: site.vision },
-  { t: "Propósito", d: site.proposito },
+  { t: "Valores", d: site.proposito },
 ];
 
 export default function MisionVision() {
   return (
-    <section className="section">
+    <section className="section" id="mision-vision-valores">
       <div className="wrap">
         <span className="kicker">Quiénes somos</span>
-        <h2 className="section-title">Lo que nos guía en cada obra</h2>
+        <h2 className="section-title">Misión, Visión y Valores</h2>
         <div className="sectors sectors-3">
           {items.map((i) => (
             <article className="sector" key={i.t}>

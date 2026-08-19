@@ -110,6 +110,11 @@ export default function Footer() {
                 <a href="/experiencia">Experiencia y sectores</a>
               </li>
               <li>
+                <a href="/experiencia#mision-vision-valores">
+                  Misión, Visión y Valores
+                </a>
+              </li>
+              <li>
                 <a href="/preguntas">Preguntas frecuentes</a>
               </li>
               <li>
