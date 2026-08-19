@@ -46,9 +46,9 @@ export default function ExperienciaPage() {
         media="obra"
         crumbs={crumbs}
       />
+      <MisionVision />
       <Obras />
       <Experience />
-      <MisionVision />
 
       <section className="section section-soft">
         <div className="wrap">
