@@ -4,6 +4,7 @@ import SitePage, { BreadcrumbLd } from "@/components/SitePage";
 import Experience from "@/components/Experience";
 import VideoBand from "@/components/VideoBand";
 import Obras from "@/components/Obras";
+import MisionVision from "@/components/MisionVision";
 import { site } from "@/site.config";
 
 const ejecucion = [
@@ -47,6 +48,7 @@ export default function ExperienciaPage() {
       />
       <Obras />
       <Experience />
+      <MisionVision />
 
       <section className="section section-soft">
         <div className="wrap">

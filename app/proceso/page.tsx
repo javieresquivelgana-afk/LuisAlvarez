@@ -9,7 +9,7 @@ const crumbs = [{ href: "/proceso", label: "Cómo trabajamos" }];
 export const metadata: Metadata = {
   title: `Cómo trabajamos — ${site.brand} ${site.brandSuffix}`,
   description:
-    "Del primer contacto a la entrega: visita técnica en terreno, cotización con alcance definido, ejecución por instalador Clase A y cierre con pruebas de funcionamiento.",
+    "Del primer contacto a la entrega: cuéntanos tu necesidad, evaluación y cotización con alcance definido, ejecución por instalador Clase A y cierre con pruebas de funcionamiento.",
   alternates: { canonical: "/proceso" },
 };
 
@@ -92,7 +92,7 @@ export default function ProcesoPage() {
             </div>
             <div className="cred-row">
               <span>Paso 2</span>
-              <b>Visita técnica en terreno</b>
+              <b>Evaluación y cotización</b>
             </div>
             <div className="cred-row">
               <span>Paso 3</span>

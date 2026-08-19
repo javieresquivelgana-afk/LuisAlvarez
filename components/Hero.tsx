@@ -165,7 +165,7 @@ export default function Hero() {
 
         <div className="hero-actions">
           <a className="btn btn-primary btn-lg" href="/contacto">
-            Agenda tu visita técnica
+            Cuéntanos tu proyecto
           </a>
           {wa ? (
             <a

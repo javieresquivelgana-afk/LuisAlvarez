@@ -104,7 +104,7 @@ export default function Footer() {
             <ul>
               <li>{site.zones}</li>
               <li>
-                <a href="/contacto">Agendar visita técnica</a>
+                <a href="/contacto">Cuéntanos tu proyecto</a>
               </li>
               <li>
                 <a href="/experiencia">Experiencia y sectores</a>

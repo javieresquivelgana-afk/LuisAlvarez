@@ -132,7 +132,7 @@ export default async function ServicioPage({ params }: Params) {
 
           <div className="hero-actions" style={{ marginBottom: 0 }}>
             <a className="btn btn-primary" href={contactHref}>
-              Solicitar visita técnica
+              Cotizar este servicio
             </a>
             {wa ? (
               <a
@@ -157,9 +157,9 @@ export default async function ServicioPage({ params }: Params) {
               Qué conviene tener a mano
             </h2>
             <p className="section-lead">
-              Nada es obligatorio: si no lo tienes, se levanta en la visita.
-              Mientras más claro llegue el requerimiento, menos cambia el
-              precio después.
+              Nada es obligatorio: si no lo tienes, se levanta en la
+              evaluación. Mientras más claro llegue el requerimiento, menos
+              cambia el precio después.
             </p>
             <div className="hero-actions" style={{ margin: "30px 0 0" }}>
               <a className="link-arrow" href="/proceso">

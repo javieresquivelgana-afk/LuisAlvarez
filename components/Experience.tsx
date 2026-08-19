@@ -42,8 +42,9 @@ export default function Experience() {
               La obra se resuelve donde está el problema
             </h2>
             <p className="section-lead">
-              Toda cotización parte con una visita técnica. Recién ahí se
-              define alcance, materiales y plazo.
+              Toda cotización parte de tu requerimiento: fotos y una
+              descripción bastan para partir. Si el proyecto lo amerita, se
+              evalúa en terreno antes de definir alcance, materiales y plazo.
             </p>
             <ul className="bullets">
               <li>

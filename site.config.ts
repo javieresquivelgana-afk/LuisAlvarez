@@ -73,6 +73,18 @@ export const site = {
     "Eros / PedidosYa",
   ],
 
+  /* ── Identidad institucional ────────────────────────────────
+   * Redactadas por Luis (WhatsApp, 18-08-2026). La misión es su
+   * texto propio; visión y propósito, editados por claridad sin
+   * cambiar lo que pidió incluir.
+   */
+  mision:
+    "Estar presente en el día a día de nuestros clientes, analizando las mejores soluciones para que nuestra intervención provoque un cambio y agilice el rendimiento de la producción. Buscamos, con nuestro grupo humano, solucionar necesidades y prestar el mejor servicio.",
+  vision:
+    "Que nuestros servicios sean una solución que permanezca en el tiempo: que genere seguridad, comodidad, bienestar y ahorro, mejore la infraestructura y agregue valor real a cada cliente.",
+  proposito:
+    "Ser los mejores de la zona en crear soluciones y mejorar el rendimiento de las instalaciones eléctricas, con un servicio de calidad, equipos y materiales certificados, y respetando siempre la normativa vigente.",
+
   // Formulación sobria — la que se muestra mientras `showClientNames`
   // esté en false. Describe el tipo de proyecto, no la marca.
   sectors: [
@@ -327,7 +339,7 @@ export const site = {
     },
     {
       q: "¿Cómo parte un proyecto?",
-      a: "Con una visita técnica en terreno. Ahí se levanta el requerimiento real —estado de la instalación, potencia disponible, condiciones del lugar— y sobre eso se cotiza con alcance y plazos definidos, sin estimaciones a ciegas.",
+      a: "Nos cuentas tu requerimiento por WhatsApp, correo o el formulario del sitio —fotos del tablero o del empalme ayudan mucho— y evaluamos el costo sobre eso, sin cobrar nada por esa primera evaluación. Si el proyecto lo amerita, coordinamos una visita técnica en terreno antes de confirmar el precio final.",
     },
     {
       q: "¿Hacen mantención periódica?",

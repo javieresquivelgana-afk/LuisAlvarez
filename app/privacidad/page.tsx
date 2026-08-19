@@ -5,7 +5,7 @@ import { site, mailHref, fullAddress } from "@/site.config";
 export const metadata: Metadata = {
   title: `Tratamiento de datos — ${site.brand} ${site.brandSuffix}`,
   description:
-    "Qué datos pide el formulario de visita técnica, para qué se usan, quién los recibe y cómo pedir que se eliminen.",
+    "Qué datos pide el formulario de contacto, para qué se usan, quién los recibe y cómo pedir que se eliminen.",
   alternates: { canonical: "/privacidad" },
   robots: { index: true, follow: true },
 };
@@ -19,11 +19,11 @@ export const metadata: Metadata = {
 const bloques = [
   {
     t: "Qué datos se piden",
-    d: "El formulario de visita técnica pide nombre, teléfono, comuna y tipo de servicio, que son obligatorios, y de forma opcional correo, empresa, dirección del servicio, fecha y horario preferido, y una descripción del requerimiento. No se piden datos financieros ni documentos de identidad.",
+    d: "El formulario de contacto pide nombre, teléfono, comuna y tipo de servicio, que son obligatorios, y de forma opcional correo, empresa, dirección del servicio, fecha y horario preferido, y una descripción del requerimiento. No se piden datos financieros ni documentos de identidad.",
   },
   {
     t: "Para qué se usan",
-    d: "Únicamente para responder la solicitud: contactarte, coordinar la visita técnica y preparar la cotización. No se usan para publicidad ni se envían boletines.",
+    d: "Únicamente para responder la solicitud: contactarte, evaluar el costo y, si el proyecto lo amerita, coordinar una visita técnica. No se usan para publicidad ni se envían boletines.",
   },
   {
     t: "Quién los recibe",

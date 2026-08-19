@@ -3,11 +3,11 @@ import LazyVideo from "@/components/LazyVideo";
 const steps = [
   {
     title: "Contacto y requerimiento",
-    desc: "Nos escribes por WhatsApp o dejas la solicitud en el formulario con el tipo de servicio que necesitas.",
+    desc: "Nos escribes por WhatsApp, correo o el formulario, con fotos del tablero o del empalme si las tienes.",
   },
   {
-    title: "Visita técnica",
-    desc: "Evaluación en terreno: estado de la instalación, potencia disponible y condiciones reales del lugar.",
+    title: "Evaluación y cotización",
+    desc: "Evaluamos el requerimiento con lo que enviaste, sin costo. Si el proyecto lo amerita, coordinamos una visita técnica en terreno.",
   },
   {
     title: "Cotización con alcance",
@@ -30,8 +30,8 @@ export default function Process() {
               Cuatro pasos, sin sorpresas a mitad de obra
             </h2>
             <p className="section-lead">
-              Primero se mira la instalación, después se cotiza. Así el precio
-              corresponde al trabajo y no a un supuesto.
+              Primero nos cuentas el requerimiento, después se cotiza. Así el
+              precio corresponde al trabajo y no a un supuesto.
             </p>
             <div className="hero-actions" style={{ margin: "28px 0 0" }}>
               <a className="link-arrow" href="/proceso">

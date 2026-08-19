@@ -74,19 +74,20 @@ export default function AgendaForm() {
     <section className="section" id="agendar">
       <div className="wrap form-in">
         <div className="form-side">
-          <span className="kicker">Agenda tu visita</span>
-          <h2 className="section-title">Solicita una visita técnica</h2>
+          <span className="kicker">Cuéntanos tu proyecto</span>
+          <h2 className="section-title">Cuéntanos qué necesitas</h2>
           <p className="section-lead">
-            Cuéntanos qué necesitas y coordinamos la evaluación en terreno.
+            Fotos del tablero o del empalme ayudan mucho. Evaluamos el costo
+            sobre lo que envías, sin cobrar nada por esa primera evaluación.
           </p>
           <ul>
             <li>
               <Check />
-              Te contactamos directamente para confirmar día y hora.
+              Te respondemos directamente con la evaluación de costo.
             </li>
             <li>
               <Check />
-              Evaluación técnica del requerimiento en terreno.
+              Visita técnica en terreno solo si el proyecto lo amerita.
             </li>
             <li>
               <Check />
@@ -245,7 +246,8 @@ export default function AgendaForm() {
           </div>
 
           <p className="form-note">
-            Te contactamos para confirmar día y hora de la visita.
+            Te respondemos con la evaluación de costo. Si el proyecto lo
+            amerita, coordinamos una visita técnica.
             {wa ? (
               <>
                 {" "}
@@ -270,13 +272,13 @@ export default function AgendaForm() {
           >
             {status === "sending"
               ? "Enviando..."
-              : "Enviar solicitud de agenda"}
+              : "Enviar solicitud de cotización"}
           </button>
 
           {status === "ok" ? (
             <p className="form-status ok" role="status">
-              Solicitud recibida. Te contactaremos pronto para confirmar la
-              visita.
+              Solicitud recibida. Te contactaremos pronto con la evaluación de
+              costo.
               {wa ? (
                 <>
                   {" "}

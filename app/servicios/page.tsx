@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const criterios = [
   {
     t: "Se cotiza sobre lo que hay",
-    d: "Ningún alcance se define por teléfono. Primero la visita técnica, después el precio: así el número corresponde al trabajo real y no a un supuesto.",
+    d: "Ningún alcance se define por teléfono. Se cotiza sobre lo que envías —fotos, descripción, planos si los tienes— y, si el proyecto lo amerita, se evalúa en terreno antes de confirmar el precio.",
   },
   {
     t: "Un responsable, no una cadena",

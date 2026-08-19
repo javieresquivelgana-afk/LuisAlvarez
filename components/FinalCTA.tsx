@@ -3,7 +3,7 @@ import { site, waLink, telHref } from "@/site.config";
 
 export default function FinalCTA() {
   const wa = waLink(
-    "Hola, necesito cotizar un trabajo eléctrico. ¿Podemos coordinar una visita técnica?",
+    "Hola, necesito cotizar un trabajo eléctrico. Te cuento el requerimiento.",
   );
 
   return (
@@ -13,12 +13,13 @@ export default function FinalCTA() {
         <span className="kicker">{site.credential}</span>
         <h2>¿Tienes un proyecto eléctrico entre manos?</h2>
         <p>
-          Cuéntanos qué necesitas y coordinamos la visita técnica. Cotización
-          con alcance definido, ejecutada y declarada por instalador Clase A.
+          Cuéntanos qué necesitas —fotos y una descripción bastan para
+          partir— y te respondemos con la evaluación de costo. Cotización con
+          alcance definido, ejecutada y declarada por instalador Clase A.
         </p>
         <div className="hero-actions">
           <a className="btn btn-primary btn-lg" href="/contacto">
-            Agendar visita técnica
+            Cuéntanos tu proyecto
           </a>
           {wa ? (
             <a

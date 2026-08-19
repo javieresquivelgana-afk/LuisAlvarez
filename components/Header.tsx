@@ -123,7 +123,7 @@ export default function Header() {
             href="/contacto"
             onClick={() => setOpen(false)}
           >
-            Agendar visita técnica
+            Cuéntanos tu proyecto
           </a>
         </div>
       ) : null}

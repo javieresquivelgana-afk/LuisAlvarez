@@ -54,7 +54,7 @@ export default function PageHero({
 
         <div className="hero-actions">
           <a className="btn btn-primary" href={cta?.href ?? "/contacto"}>
-            {cta?.label ?? "Agenda tu visita técnica"}
+            {cta?.label ?? "Cuéntanos tu proyecto"}
           </a>
           {wa ? (
             <a

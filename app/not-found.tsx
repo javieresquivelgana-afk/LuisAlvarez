@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const salidas = [
   { href: "/servicios", label: "Los diez servicios" },
   { href: "/clase-a", label: "Qué es un instalador Clase A" },
-  { href: "/contacto", label: "Agendar una visita técnica" },
+  { href: "/contacto", label: "Cuéntanos tu proyecto" },
 ];
 
 export default function NotFound() {
