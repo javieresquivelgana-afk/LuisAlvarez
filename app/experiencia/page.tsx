@@ -26,9 +26,9 @@ export default function ExperienciaPage() {
         media="obra"
         crumbs={crumbs}
       />
+      <MisionVision />
       <Obras />
       <Experience />
-      <MisionVision />
     </SitePage>
   );
 }
