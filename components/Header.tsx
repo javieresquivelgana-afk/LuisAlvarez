@@ -9,12 +9,10 @@ const links = [
   { href: "/servicios", label: "Servicios" },
   { href: "/experiencia", label: "Quiénes somos" },
   { href: "/clase-a", label: "Clase A" },
-];
-
-const menuExtra = [
-  { href: "/cobertura", label: "Cobertura" },
   { href: "/preguntas", label: "Preguntas frecuentes" },
 ];
+
+const menuExtra = [{ href: "/cobertura", label: "Cobertura" }];
 
 const wa = waLink();
 
