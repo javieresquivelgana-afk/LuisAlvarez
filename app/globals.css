@@ -185,7 +185,7 @@ h4 {
 }
 
 .section {
-  padding: clamp(72px, 9vw, 132px) 0;
+  padding: clamp(52px, 7vw, 96px) 0;
 }
 
 .section + .section {
@@ -694,7 +694,7 @@ h4 {
   isolation: isolate;
   display: flex;
   align-items: flex-end;
-  min-height: 56svh;
+  min-height: 42svh;
 }
 
 .phero img,
@@ -724,8 +724,8 @@ h4 {
 
 .phero-in {
   width: 100%;
-  padding-top: calc(var(--header-h) + 64px);
-  padding-bottom: 62px;
+  padding-top: calc(var(--header-h) + 44px);
+  padding-bottom: 44px;
 }
 
 .phero h1 {
@@ -995,7 +995,7 @@ h4 {
 }
 
 .band-in {
-  padding: clamp(80px, 10vw, 140px) 0;
+  padding: clamp(60px, 8vw, 104px) 0;
 }
 
 .band h2 {
@@ -1046,7 +1046,7 @@ h4 {
   grid-template-columns: repeat(2, 1fr);
   column-gap: 48px;
   border-top: 1px solid var(--line);
-  margin-top: 46px;
+  margin-top: 34px;
 }
 
 .sectors-3 {
@@ -1155,7 +1155,7 @@ h4 {
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(36px, 6vw, 80px);
+  gap: clamp(28px, 5vw, 64px);
   align-items: center;
 }
 
@@ -1293,8 +1293,8 @@ h4 {
 .steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  margin-top: 56px;
+  gap: 28px;
+  margin-top: 40px;
 }
 
 .step {
@@ -1704,7 +1704,7 @@ h4 {
 }
 
 .final-in {
-  padding: clamp(80px, 10vw, 140px) 0;
+  padding: clamp(60px, 8vw, 104px) 0;
   max-width: 50ch;
 }
 
@@ -1730,7 +1730,7 @@ h4 {
 .footer {
   background: var(--ink);
   color: #8e9dac;
-  padding: 74px 0 30px;
+  padding: 56px 0 26px;
   font-size: 15px;
 }
 

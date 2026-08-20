@@ -1,5 +1,3 @@
-import { site } from "@/site.config";
-
 const Arrow = () => (
   <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true">
     <path
@@ -31,11 +29,6 @@ const destinos = [
     href: "/experiencia",
     label: "Quiénes somos",
     desc: "Sectores atendidos y cómo entra una obra en marcha.",
-  },
-  {
-    href: "/cobertura",
-    label: "Cobertura",
-    desc: `Base en ${site.address.city} y zona de atención declarada.`,
   },
   {
     href: "/preguntas",
