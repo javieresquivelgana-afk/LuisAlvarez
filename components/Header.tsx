@@ -12,8 +12,6 @@ const links = [
   { href: "/preguntas", label: "Preguntas frecuentes" },
 ];
 
-const menuExtra = [{ href: "/cobertura", label: "Cobertura" }];
-
 const wa = waLink();
 
 export default function Header() {
@@ -92,7 +90,7 @@ export default function Header() {
 
       {open ? (
         <div className="mobile-menu">
-          {[...links, ...menuExtra].map((l) => (
+          {links.map((l) => (
             <a
               key={l.href}
               href={l.href}

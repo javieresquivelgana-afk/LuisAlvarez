@@ -3,7 +3,6 @@ export const ORDER = [
   { href: "/servicios", label: "Servicios" },
   { href: "/clase-a", label: "Clase A" },
   { href: "/experiencia", label: "Quiénes somos" },
-  { href: "/cobertura", label: "Cobertura" },
   { href: "/preguntas", label: "Preguntas frecuentes" },
   { href: "/contacto", label: "Contacto" },
 ];

@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/servicios",
     "/experiencia",
     "/clase-a",
-    "/cobertura",
     "/preguntas",
     "/contacto",
     "/privacidad",
