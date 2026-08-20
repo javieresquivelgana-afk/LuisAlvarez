@@ -107,7 +107,7 @@ export default function Footer() {
                 <a href="/contacto">Cuéntanos tu proyecto</a>
               </li>
               <li>
-                <a href="/experiencia">Experiencia y sectores</a>
+                <a href="/experiencia">Quiénes somos</a>
               </li>
               <li>
                 <a href="/experiencia#mision-vision-valores">

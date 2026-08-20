@@ -7,9 +7,8 @@ import { site, waLink, telHref } from "@/site.config";
 
 const links = [
   { href: "/servicios", label: "Servicios" },
-  { href: "/experiencia", label: "Experiencia" },
+  { href: "/experiencia", label: "Quiénes somos" },
   { href: "/clase-a", label: "Clase A" },
-  { href: "/proceso", label: "Cómo trabajamos" },
 ];
 
 const menuExtra = [

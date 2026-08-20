@@ -162,8 +162,8 @@ export default async function ServicioPage({ params }: Params) {
               cambia el precio después.
             </p>
             <div className="hero-actions" style={{ margin: "30px 0 0" }}>
-              <a className="link-arrow" href="/proceso">
-                Ver cómo trabajamos, paso a paso
+              <a className="link-arrow" href="/contacto">
+                Cuéntanos tu proyecto
                 <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </a>
             </div>

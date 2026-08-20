@@ -29,13 +29,8 @@ const destinos = [
   },
   {
     href: "/experiencia",
-    label: "Experiencia",
+    label: "Quiénes somos",
     desc: "Sectores atendidos y cómo entra una obra en marcha.",
-  },
-  {
-    href: "/proceso",
-    label: "Cómo trabajamos",
-    desc: "Del primer contacto a la entrega, en cuatro pasos.",
   },
   {
     href: "/cobertura",

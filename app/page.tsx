@@ -13,7 +13,7 @@ import MobileBar from "@/components/MobileBar";
 /**
  * Portada. Deliberadamente corta: qué se hace, con qué respaldo y cómo
  * seguir. El desarrollo de cada tema vive en su propia página —
- * /servicios, /clase-a, /experiencia, /proceso, /cobertura, /preguntas
+ * /servicios, /clase-a, /experiencia, /cobertura, /preguntas
  * y /contacto — y se entra desde el bloque «Seguir mirando».
  *
  * Datos estructurados: solo datos reales, tomados de la tarjeta oficial
